@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */; };
+		AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974592A9C4CCB006748CA /* ContentView.swift */; };
+		AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE89745B2A9C4CCC006748CA /* Assets.xcassets */; };
+		AE89745F2A9C4CCC006748CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE89745E2A9C4CCC006748CA /* Preview Assets.xcassets */; };
+		AE8974692A9C4CCC006748CA /* EventiLatteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974682A9C4CCC006748CA /* EventiLatteTests.swift */; };
+		AE8974732A9C4CCC006748CA /* EventiLatteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */; };
+		AE8974752A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE8974652A9C4CCC006748CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE89744C2A9C4CCB006748CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE8974532A9C4CCB006748CA;
+			remoteInfo = EventiLatte;
+		};
+		AE89746F2A9C4CCC006748CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE89744C2A9C4CCB006748CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE8974532A9C4CCB006748CA;
+			remoteInfo = EventiLatte;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE8974542A9C4CCB006748CA /* EventiLatte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventiLatte.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteApp.swift; sourceTree = "<group>"; };
+		AE8974592A9C4CCB006748CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AE89745B2A9C4CCC006748CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE89745E2A9C4CCC006748CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE8974642A9C4CCC006748CA /* EventiLatteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventiLatteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8974682A9C4CCC006748CA /* EventiLatteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteTests.swift; sourceTree = "<group>"; };
+		AE89746E2A9C4CCC006748CA /* EventiLatteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventiLatteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITests.swift; sourceTree = "<group>"; };
+		AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE8974512A9C4CCB006748CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8974612A9C4CCC006748CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE89746B2A9C4CCC006748CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE89744B2A9C4CCB006748CA = {
+			isa = PBXGroup;
+			children = (
+				AE8974562A9C4CCB006748CA /* EventiLatte */,
+				AE8974672A9C4CCC006748CA /* EventiLatteTests */,
+				AE8974712A9C4CCC006748CA /* EventiLatteUITests */,
+				AE8974552A9C4CCB006748CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE8974552A9C4CCB006748CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE8974542A9C4CCB006748CA /* EventiLatte.app */,
+				AE8974642A9C4CCC006748CA /* EventiLatteTests.xctest */,
+				AE89746E2A9C4CCC006748CA /* EventiLatteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE8974562A9C4CCB006748CA /* EventiLatte */ = {
+			isa = PBXGroup;
+			children = (
+				AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */,
+				AE8974592A9C4CCB006748CA /* ContentView.swift */,
+				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
+				AE89745D2A9C4CCC006748CA /* Preview Content */,
+			);
+			path = EventiLatte;
+			sourceTree = "<group>";
+		};
+		AE89745D2A9C4CCC006748CA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AE89745E2A9C4CCC006748CA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AE8974672A9C4CCC006748CA /* EventiLatteTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE8974682A9C4CCC006748CA /* EventiLatteTests.swift */,
+			);
+			path = EventiLatteTests;
+			sourceTree = "<group>";
+		};
+		AE8974712A9C4CCC006748CA /* EventiLatteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */,
+				AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */,
+			);
+			path = EventiLatteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE8974532A9C4CCB006748CA /* EventiLatte */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE8974782A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatte" */;
+			buildPhases = (
+				AE8974502A9C4CCB006748CA /* Sources */,
+				AE8974512A9C4CCB006748CA /* Frameworks */,
+				AE8974522A9C4CCB006748CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventiLatte;
+			productName = EventiLatte;
+			productReference = AE8974542A9C4CCB006748CA /* EventiLatte.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AE8974632A9C4CCC006748CA /* EventiLatteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE89747B2A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatteTests" */;
+			buildPhases = (
+				AE8974602A9C4CCC006748CA /* Sources */,
+				AE8974612A9C4CCC006748CA /* Frameworks */,
+				AE8974622A9C4CCC006748CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8974662A9C4CCC006748CA /* PBXTargetDependency */,
+			);
+			name = EventiLatteTests;
+			productName = EventiLatteTests;
+			productReference = AE8974642A9C4CCC006748CA /* EventiLatteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AE89746D2A9C4CCC006748CA /* EventiLatteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE89747E2A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatteUITests" */;
+			buildPhases = (
+				AE89746A2A9C4CCC006748CA /* Sources */,
+				AE89746B2A9C4CCC006748CA /* Frameworks */,
+				AE89746C2A9C4CCC006748CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE8974702A9C4CCC006748CA /* PBXTargetDependency */,
+			);
+			name = EventiLatteUITests;
+			productName = EventiLatteUITests;
+			productReference = AE89746E2A9C4CCC006748CA /* EventiLatteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE89744C2A9C4CCB006748CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					AE8974532A9C4CCB006748CA = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					AE8974632A9C4CCC006748CA = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AE8974532A9C4CCB006748CA;
+					};
+					AE89746D2A9C4CCC006748CA = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = AE8974532A9C4CCB006748CA;
+					};
+				};
+			};
+			buildConfigurationList = AE89744F2A9C4CCB006748CA /* Build configuration list for PBXProject "EventiLatte" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE89744B2A9C4CCB006748CA;
+			productRefGroup = AE8974552A9C4CCB006748CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE8974532A9C4CCB006748CA /* EventiLatte */,
+				AE8974632A9C4CCC006748CA /* EventiLatteTests */,
+				AE89746D2A9C4CCC006748CA /* EventiLatteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE8974522A9C4CCB006748CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE89745F2A9C4CCC006748CA /* Preview Assets.xcassets in Resources */,
+				AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8974622A9C4CCC006748CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE89746C2A9C4CCC006748CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE8974502A9C4CCB006748CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */,
+				AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE8974602A9C4CCC006748CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8974692A9C4CCC006748CA /* EventiLatteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE89746A2A9C4CCC006748CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE8974752A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift in Sources */,
+				AE8974732A9C4CCC006748CA /* EventiLatteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE8974662A9C4CCC006748CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE8974532A9C4CCB006748CA /* EventiLatte */;
+			targetProxy = AE8974652A9C4CCC006748CA /* PBXContainerItemProxy */;
+		};
+		AE8974702A9C4CCC006748CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE8974532A9C4CCB006748CA /* EventiLatte */;
+			targetProxy = AE89746F2A9C4CCC006748CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AE8974762A9C4CCC006748CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE8974772A9C4CCC006748CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE8974792A9C4CCC006748CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
+				DEVELOPMENT_TEAM = B22434C9EF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE89747A2A9C4CCC006748CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
+				DEVELOPMENT_TEAM = B22434C9EF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AE89747C2A9C4CCC006748CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22434C9EF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventiLatte.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EventiLatte";
+			};
+			name = Debug;
+		};
+		AE89747D2A9C4CCC006748CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22434C9EF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventiLatte.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EventiLatte";
+			};
+			name = Release;
+		};
+		AE89747F2A9C4CCC006748CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22434C9EF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EventiLatte;
+			};
+			name = Debug;
+		};
+		AE8974802A9C4CCC006748CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B22434C9EF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EventiLatte;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE89744F2A9C4CCB006748CA /* Build configuration list for PBXProject "EventiLatte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8974762A9C4CCC006748CA /* Debug */,
+				AE8974772A9C4CCC006748CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE8974782A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE8974792A9C4CCC006748CA /* Debug */,
+				AE89747A2A9C4CCC006748CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE89747B2A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE89747C2A9C4CCC006748CA /* Debug */,
+				AE89747D2A9C4CCC006748CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE89747E2A9C4CCC006748CA /* Build configuration list for PBXNativeTarget "EventiLatteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE89747F2A9C4CCC006748CA /* Debug */,
+				AE8974802A9C4CCC006748CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE89744C2A9C4CCB006748CA /* Project object */;
+}
