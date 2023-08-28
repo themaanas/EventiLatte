@@ -39,6 +39,7 @@
 		0AE736A12A9C56580015769D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0AE736A32A9C584A0015769D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		0AE736A52A9C592A0015769D /* EventiLatte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventiLatte.entitlements; sourceTree = "<group>"; };
+		0AE736A62A9C635E0015769D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AE8974542A9C4CCB006748CA /* EventiLatte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventiLatte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteApp.swift; sourceTree = "<group>"; };
 		AE8974592A9C4CCB006748CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
 				AE89745D2A9C4CCC006748CA /* Preview Content */,
+				0AE736A62A9C635E0015769D /* Config.xcconfig */,
 			);
 			path = EventiLatte;
 			sourceTree = "<group>";
@@ -307,6 +309,7 @@
 /* Begin XCBuildConfiguration section */
 		AE8974762A9C4CCC006748CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE736A62A9C635E0015769D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -367,6 +370,7 @@
 		};
 		AE8974772A9C4CCC006748CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE736A62A9C635E0015769D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -425,6 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EventiLatte/EventiLatte.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
@@ -441,8 +446,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
+				PRODUCT_BUNDLE_IDENTIFIER = kevin.EventiLatte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -455,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EventiLatte/EventiLatte.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
@@ -471,8 +478,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
+				PRODUCT_BUNDLE_IDENTIFIER = kevin.EventiLatte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  EventiLatte
+//
+//  Created by Kevin Tran on 8/28/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+BUNDLE_ID = kevin.EventiLatte
