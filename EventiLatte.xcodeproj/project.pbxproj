@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AE736A22A9C56580015769D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A12A9C56580015769D /* SignInView.swift */; };
+		0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A32A9C584A0015769D /* SignUpView.swift */; };
 		AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */; };
 		AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974592A9C4CCB006748CA /* ContentView.swift */; };
 		AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE89745B2A9C4CCC006748CA /* Assets.xcassets */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AE736A12A9C56580015769D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		0AE736A32A9C584A0015769D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0AE736A52A9C592A0015769D /* EventiLatte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventiLatte.entitlements; sourceTree = "<group>"; };
 		AE8974542A9C4CCB006748CA /* EventiLatte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventiLatte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteApp.swift; sourceTree = "<group>"; };
 		AE8974592A9C4CCB006748CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,8 +99,11 @@
 		AE8974562A9C4CCB006748CA /* EventiLatte */ = {
 			isa = PBXGroup;
 			children = (
+				0AE736A52A9C592A0015769D /* EventiLatte.entitlements */,
 				AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */,
 				AE8974592A9C4CCB006748CA /* ContentView.swift */,
+				0AE736A12A9C56580015769D /* SignInView.swift */,
+				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
 				AE89745D2A9C4CCC006748CA /* Preview Content */,
 			);
@@ -257,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */,
+				0AE736A22A9C56580015769D /* SignInView.swift in Sources */,
 				AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */,
 				AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */,
 			);
@@ -414,10 +424,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EventiLatte/EventiLatte.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
-				DEVELOPMENT_TEAM = B22434C9EF;
+				DEVELOPMENT_TEAM = DSC5426C74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -443,10 +454,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EventiLatte/EventiLatte.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
-				DEVELOPMENT_TEAM = B22434C9EF;
+				DEVELOPMENT_TEAM = DSC5426C74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
