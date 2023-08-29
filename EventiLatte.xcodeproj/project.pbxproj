@@ -16,6 +16,8 @@
 		AE8974692A9C4CCC006748CA /* EventiLatteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974682A9C4CCC006748CA /* EventiLatteTests.swift */; };
 		AE8974732A9C4CCC006748CA /* EventiLatteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */; };
 		AE8974752A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */; };
+		AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */; };
+		AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		AE89746E2A9C4CCC006748CA /* EventiLatteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventiLatteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITests.swift; sourceTree = "<group>"; };
 		AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,7 @@
 				0AE736A12A9C56580015769D /* SignInView.swift */,
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
+				AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */,
 				AE89745D2A9C4CCC006748CA /* Preview Content */,
 				0AE736A62A9C635E0015769D /* Config.xcconfig */,
 			);
@@ -153,6 +158,9 @@
 			dependencies = (
 			);
 			name = EventiLatte;
+			packageProductDependencies = (
+				AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */,
+			);
 			productName = EventiLatte;
 			productReference = AE8974542A9C4CCB006748CA /* EventiLatte.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +233,9 @@
 				Base,
 			);
 			mainGroup = AE89744B2A9C4CCB006748CA;
+			packageReferences = (
+				AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AE8974552A9C4CCB006748CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE89745F2A9C4CCC006748CA /* Preview Assets.xcassets in Resources */,
+				AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */,
 				AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -413,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
-				DEVELOPMENT_TEAM = DSC5426C74;
+				DEVELOPMENT_TEAM = B22434C9EF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -441,12 +453,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kevin.EventiLatte;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -465,7 +478,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EventiLatte/Preview Content\"";
-				DEVELOPMENT_TEAM = DSC5426C74;
+				DEVELOPMENT_TEAM = B22434C9EF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -473,12 +486,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kevin.EventiLatte;
+				PRODUCT_BUNDLE_IDENTIFIER = maanas.EventiLatte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -603,6 +617,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE89744C2A9C4CCB006748CA /* Project object */;
 }

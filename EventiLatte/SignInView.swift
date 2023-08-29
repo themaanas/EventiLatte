@@ -6,31 +6,67 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SignInView: View {
+    @State private var email = ""
+    @State private var password = ""
+    @State private var loginSuccess = false
     var body: some View {
         VStack {
-            Text("Signin@")
+            TextField("", text: $email)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 8)
+                .foregroundColor(.black)
+                .textFieldStyle(.plain)
+                .placeholder(when: email.isEmpty) {
+                    Text("Email")
+                        .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                        .bold()
+                }
+                .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                .cornerRadius(7)
+                .frame(width: 200.0, height: 100.0)
+                .padding(.bottom, -50)
+                
+                
+            SecureField("", text: $password)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 8)
+                .foregroundColor(.black)
+                .textFieldStyle(.plain)
+                .placeholder(when: password.isEmpty) {
+                    Text("Password")
+                        .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                        .bold()
+                }
+                .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                .cornerRadius(7)
+                .frame(width: 200.0, height: 100.0)
+            Button("Log In") {
+                print("hi")
+                register()
+            }
+            .alert("Message from SwiftUI", isPresented: $loginSuccess) {
+                        Button("Success") { }
+                    }
+            .padding(10)
+            .frame(width:150)
+            .background(Color(red: 235/255, green: 136/255, blue: 66/255))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding(20)
             
         }
-        
-
-//        SignInWithAppleButton(.signIn) { request in
-//            request.reqestedScopes = [.fullName, .email]
-//        } onCompletion: { result in
-//            switch result {
-//                case .success(let authResults):
-//                    print("Authorisation successful")
-//                case .error(let error):
-//                    print("Authorisation failed: \(error.localizedDescription)")
-//            }
-//        }
-        // black button
-        
-        // white button
-//        .signInWithAppleButtonStyle(.white)
-//        // white with border
-//        .signInWithAppleButtonStyle(.whiteOutline)
+    }
+    func register() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                loginSuccess = true
+            }
+        }
     }
 }
 
