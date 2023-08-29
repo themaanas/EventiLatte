@@ -7,9 +7,12 @@
 
 import SwiftUI
 import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseSwift
 
 struct SignUpView: View {
     @State private var email = ""
+    @State private var name = ""
     @State private var password = ""
     @State private var searchingFor = ""
 //    @State var unis: [String] = []
@@ -20,6 +23,20 @@ struct SignUpView: View {
             Color.white
                 .ignoresSafeArea()
             VStack {
+                TextField("", text: $name)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.black)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: name.isEmpty) {
+                        Text("Name")
+                            .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                            .bold()
+                    }
+                    .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                    .cornerRadius(7)
+                    .frame(width: 200.0, height: 100.0)
+                    .padding(.bottom, -50)
                 TextField("", text: $email)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
@@ -103,6 +120,11 @@ struct SignUpView: View {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+            } else {
+                let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
+                let uid = Auth.auth().currentUser?.uid
+                
+                ref.child("users").child(uid!).setValue(["email": email, "name": name, "university": searchingFor])
             }
         }
     }
