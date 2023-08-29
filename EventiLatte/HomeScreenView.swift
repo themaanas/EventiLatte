@@ -25,7 +25,7 @@ struct HomeScreenView: View {
                     Image(systemName: "bell.fill")
                     Text("Notifications")
                   }
-            Text("profilescreen")
+            ProfileView()
                  .tabItem {
                     Image(systemName: "person.fill")
                     Text("Profile")
