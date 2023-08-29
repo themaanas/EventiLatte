@@ -7,10 +7,14 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
 
 var unis: [String] = []
 @main
 struct EventiLatteApp: App {
+    @Environment(\.scenePhase) var scenePhase
+    @State var handle: Any!
+    @State var isLoggedIn: Bool = false
     func readCSV(inputFile: String) -> [String] {
             if let filepath = Bundle.main.path(forResource: inputFile, ofType: nil) {
                 do {
@@ -35,10 +39,39 @@ struct EventiLatteApp: App {
     init() {
         FirebaseApp.configure()
         unis = readCSV(inputFile: "us_universities.csv")
+        
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if !isLoggedIn {
+                ContentView()
+                    .onChange(of: scenePhase) { newPhase in
+                                    if newPhase == .active {
+                                        handle = Auth.auth().addStateDidChangeListener({ auth, user in
+                                            if let user = user {
+                                              // The user's ID, unique to the Firebase project.
+                                              // Do NOT use this value to authenticate with your backend server,
+                                              // if you have one. Use getTokenWithCompletion:completion: instead.
+                                              let uid = user.uid
+                                              let email = user.email
+                                                print("\(uid) + \(email)")
+                                                isLoggedIn = true
+                                            } else {
+                                                isLoggedIn = false
+                                            }
+                                        })
+                                    } else if newPhase == .inactive {
+                                        print("Inactive")
+                                    } else if newPhase == .background {
+                                        Auth.auth().removeStateDidChangeListener(handle as! NSObjectProtocol)
+                                    }
+                                }
+            } else {
+                HomeScreenView()
+            }
+                
+            
+            
         }
     }
 }
