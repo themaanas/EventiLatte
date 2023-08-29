@@ -18,6 +18,7 @@
 		AE8974752A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */; };
 		AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */; };
 		AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */; };
+		AEEDCBDD2A9DBB1200DD40A2 /* us_universities.csv in Resources */ = {isa = PBXBuildFile; fileRef = AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		AE8974722A9C4CCC006748CA /* EventiLatteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITests.swift; sourceTree = "<group>"; };
 		AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_universities.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				AE8974592A9C4CCB006748CA /* ContentView.swift */,
 				0AE736A12A9C56580015769D /* SignInView.swift */,
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
+				AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
 				AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */,
 				AE89745D2A9C4CCC006748CA /* Preview Content */,
@@ -254,6 +257,7 @@
 			files = (
 				AE89745F2A9C4CCC006748CA /* Preview Assets.xcassets in Resources */,
 				AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */,
+				AEEDCBDD2A9DBB1200DD40A2 /* us_universities.csv in Resources */,
 				AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

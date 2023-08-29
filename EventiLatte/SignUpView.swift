@@ -11,48 +11,92 @@ import Firebase
 struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var searchingFor = ""
+//    @State var unis: [String] = []
+    
     var body: some View {
-        VStack {
-            TextField("", text: $email)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 8)
-                .foregroundColor(.black)
-                .textFieldStyle(.plain)
-                .placeholder(when: email.isEmpty) {
-                    Text("Email")
-                        .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
-                        .bold()
-                }
-                .background(Color(red: 230/255, green: 230/255, blue: 230/255))
-                .cornerRadius(7)
-                .frame(width: 200.0, height: 100.0)
-                .padding(.bottom, -50)
+        
+        ZStack {
+            Color.white
+                .ignoresSafeArea()
+            VStack {
+                TextField("", text: $email)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.black)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: email.isEmpty) {
+                        Text("Email")
+                            .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                            .bold()
+                    }
+                    .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                    .cornerRadius(7)
+                    .frame(width: 200.0, height: 100.0)
+                    .padding(.bottom, -50)
+                    
+                    
+                SecureField("", text: $password)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.black)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: password.isEmpty) {
+                        Text("Password")
+                            .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                            .bold()
+                    }
+                    .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                    .cornerRadius(7)
+                    .frame(width: 200.0, height: 100.0)
+                    .padding(.bottom, -20)
                 
-                
-            SecureField("", text: $password)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 8)
-                .foregroundColor(.black)
-                .textFieldStyle(.plain)
-                .placeholder(when: password.isEmpty) {
-                    Text("Password")
-                        .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
-                        .bold()
+                TextField("", text: $searchingFor)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.black)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: searchingFor.isEmpty) {
+                        Text("University/College")
+                            .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
+                            .bold()
+                    }
+                    .background(Color(red: 230/255, green: 230/255, blue: 230/255))
+                    .cornerRadius(7)
+                    .frame(width: 200.0, height: 100.0)
+                    
+                List {
+                    ForEach(results, id: \.self) { uni in
+                        Button(uni) {
+                            searchingFor = uni
+                        }
+                    }
                 }
-                .background(Color(red: 230/255, green: 230/255, blue: 230/255))
-                .cornerRadius(7)
-                .frame(width: 200.0, height: 100.0)
-            Button("Sign Up") {
-                print("hi")
-                register()
+                .background(Color.white)
+                .frame(width: 400, height: 200)
+                
+                Button("Sign Up") {
+                    print("hi")
+                    register()
+                }
+                .padding(10)
+                .frame(width:150)
+                .background(Color(red: 235/255, green: 136/255, blue: 66/255))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+                .padding(20)
+                
             }
-            .padding(10)
-            .frame(width:150)
-            .background(Color(red: 235/255, green: 136/255, blue: 66/255))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-            .padding(20)
+        }
+        
+    }
+    
+    var results: [String] {
+        if searchingFor.isEmpty {
+            return []
+        } else {
             
+            return Array(unis.filter{ $0.lowercased().contains(searchingFor)})
         }
     }
     func register() {
@@ -62,6 +106,7 @@ struct SignUpView: View {
             }
         }
     }
+    
 }
 extension View {
     func placeholder<Content: View>(
