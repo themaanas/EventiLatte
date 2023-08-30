@@ -137,15 +137,10 @@
 		AE8974562A9C4CCB006748CA /* EventiLatte */ = {
 			isa = PBXGroup;
 			children = (
+				ED9E847F2A9F1EF0007C90F7 /* Views */,
 				0A25228E2A9EEC4B00750866 /* Info.plist */,
 				0AE736A52A9C592A0015769D /* EventiLatte.entitlements */,
 				AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */,
-				AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */,
-				AE8974592A9C4CCB006748CA /* ContentView.swift */,
-				0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */,
-				0AE736A12A9C56580015769D /* SignInView.swift */,
-				0A6216E02A9DDB730069BCB9 /* ProfileView.swift */,
-				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
 				0A25228D2A9EEB7300750866 /* Fonts */,
@@ -179,6 +174,19 @@
 				AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */,
 			);
 			path = EventiLatteUITests;
+			sourceTree = "<group>";
+		};
+		ED9E847F2A9F1EF0007C90F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */,
+				AE8974592A9C4CCB006748CA /* ContentView.swift */,
+				0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */,
+				0AE736A12A9C56580015769D /* SignInView.swift */,
+				0A6216E02A9DDB730069BCB9 /* ProfileView.swift */,
+				0AE736A32A9C584A0015769D /* SignUpView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
