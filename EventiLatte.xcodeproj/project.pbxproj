@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A25228C2A9EEB5900750866 /* ArchivoBlack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A25228B2A9EEB5800750866 /* ArchivoBlack-Regular.ttf */; };
 		0A6216D92A9DD0100069BCB9 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0A6216D82A9DD0100069BCB9 /* FirebaseDatabase */; };
 		0A6216DB2A9DD0100069BCB9 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A6216DA2A9DD0100069BCB9 /* FirebaseDatabaseSwift */; };
 		0A6216DF2A9DD40F0069BCB9 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A25228B2A9EEB5800750866 /* ArchivoBlack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchivoBlack-Regular.ttf"; sourceTree = "<group>"; };
+		0A25228E2A9EEC4B00750866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		0A6216E02A9DDB730069BCB9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0AE736A12A9C56580015769D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -95,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A25228D2A9EEB7300750866 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0A25228B2A9EEB5800750866 /* ArchivoBlack-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0A6216D72A9DD0100069BCB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +137,7 @@
 		AE8974562A9C4CCB006748CA /* EventiLatte */ = {
 			isa = PBXGroup;
 			children = (
+				0A25228E2A9EEC4B00750866 /* Info.plist */,
 				0AE736A52A9C592A0015769D /* EventiLatte.entitlements */,
 				AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */,
 				AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */,
@@ -136,6 +148,7 @@
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */,
 				AE89745B2A9C4CCC006748CA /* Assets.xcassets */,
+				0A25228D2A9EEB7300750866 /* Fonts */,
 				AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */,
 				AE89745D2A9C4CCC006748CA /* Preview Content */,
 				0AE736A62A9C635E0015769D /* Config.xcconfig */,
@@ -283,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE89745F2A9C4CCC006748CA /* Preview Assets.xcassets in Resources */,
+				0A25228C2A9EEB5900750866 /* ArchivoBlack-Regular.ttf in Resources */,
 				AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */,
 				AEEDCBDD2A9DBB1200DD40A2 /* us_universities.csv in Resources */,
 				AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */,
@@ -482,6 +496,7 @@
 				DEVELOPMENT_TEAM = B22434C9EF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventiLatte/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -515,6 +530,7 @@
 				DEVELOPMENT_TEAM = B22434C9EF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventiLatte/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
