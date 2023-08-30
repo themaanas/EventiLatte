@@ -20,7 +20,7 @@ struct HomeScreenView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
               }
-            Text("FOR SEARCH SCREEN STUFF")
+            DiscoverView()
                  .tabItem {
                     Image(systemName: "magnifyingglass.circle.fill")
                     Text("Search")

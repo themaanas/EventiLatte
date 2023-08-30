@@ -13,6 +13,8 @@
 		0A6216E12A9DDB730069BCB9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6216E02A9DDB730069BCB9 /* ProfileView.swift */; };
 		0AE736A22A9C56580015769D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A12A9C56580015769D /* SignInView.swift */; };
 		0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A32A9C584A0015769D /* SignUpView.swift */; };
+		AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE3EDE8D2A9EE32E00666B8B /* FeedKit */; };
+		AE3EDE902A9EE35500666B8B /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */; };
 		AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */; };
 		AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974592A9C4CCB006748CA /* ContentView.swift */; };
 		AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE89745B2A9C4CCC006748CA /* Assets.xcassets */; };
@@ -49,6 +51,7 @@
 		0AE736A32A9C584A0015769D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		0AE736A52A9C592A0015769D /* EventiLatte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventiLatte.entitlements; sourceTree = "<group>"; };
 		0AE736A62A9C635E0015769D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		AE8974542A9C4CCB006748CA /* EventiLatte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventiLatte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteApp.swift; sourceTree = "<group>"; };
 		AE8974592A9C4CCB006748CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 				0A6216DB2A9DD0100069BCB9 /* FirebaseDatabaseSwift in Frameworks */,
 				0A6216D92A9DD0100069BCB9 /* FirebaseDatabase in Frameworks */,
 				AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */,
+				AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +128,7 @@
 			children = (
 				0AE736A52A9C592A0015769D /* EventiLatte.entitlements */,
 				AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */,
+				AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */,
 				AE8974592A9C4CCB006748CA /* ContentView.swift */,
 				0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */,
 				0AE736A12A9C56580015769D /* SignInView.swift */,
@@ -183,6 +188,7 @@
 				AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */,
 				0A6216D82A9DD0100069BCB9 /* FirebaseDatabase */,
 				0A6216DA2A9DD0100069BCB9 /* FirebaseDatabaseSwift */,
+				AE3EDE8D2A9EE32E00666B8B /* FeedKit */,
 			);
 			productName = EventiLatte;
 			productReference = AE8974542A9C4CCB006748CA /* EventiLatte.app */;
@@ -258,6 +264,7 @@
 			mainGroup = AE89744B2A9C4CCB006748CA;
 			packageReferences = (
 				AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			productRefGroup = AE8974552A9C4CCB006748CA /* Products */;
 			projectDirPath = "";
@@ -307,6 +314,7 @@
 				0AE736A22A9C56580015769D /* SignInView.swift in Sources */,
 				0A6216DF2A9DD40F0069BCB9 /* HomeScreenView.swift in Sources */,
 				AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */,
+				AE3EDE902A9EE35500666B8B /* DiscoverView.swift in Sources */,
 				0A6216E12A9DDB730069BCB9 /* ProfileView.swift in Sources */,
 				AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */,
 			);
@@ -645,6 +653,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -665,6 +681,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		AE3EDE8D2A9EE32E00666B8B /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
 		};
 		AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
