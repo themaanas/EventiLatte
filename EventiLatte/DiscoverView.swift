@@ -6,10 +6,84 @@
 //
 
 import SwiftUI
+import FeedKit
 
 struct DiscoverView: View {
+    @State private var events: [[String]] = []
+    @State private var searchText = ""
+    @State private var searchIsActive = false
+    @State var articles = sampleArticles
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ExecuteCode {
+            
+        }
+        
+        VStack {
+            NavigationView {
+//                List {
+//                        ForEach(articles) { article in
+//                            ArticleRow(article: article)
+//                        }
+//                 
+//                        .listRowSeparator(.hidden)
+//                 
+//                    }
+//                    .listStyle(.plain)
+                
+            }.searchable(text: $searchText)
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            
+            
+                ScrollView(.horizontal) {
+                            LazyHStack {
+                                if $events.count > 0 {
+                                    ForEach(0...$events.count - 1, id: \.self) { index in
+                                        Text(String($events[index].first!.wrappedValue))
+                                        Text("hi")
+                                            .onAppear {
+                                                print(index)
+                                            }
+                                            .padding()
+                                            .background(.white)
+                                            .cornerRadius(8)
+                                    }
+                                }
+                            }
+                        }
+                .background(Color(UIColor.systemGroupedBackground))
+                .onAppear() {
+                    print(events)
+//                    events.removeLast()
+                    if events.count < 1 {
+                        let feedURL = URL(string: "https://rutgers.campuslabs.com/engage/events.rss")!
+                        let parser = FeedParser(URL: feedURL)
+                        let result = parser.parse()
+                        switch result {
+                        case .success(let feed):
+                            
+                            // Grab the parsed feed directly as an optional rss, atom or json feed object
+                            print(feed.rssFeed?.title)
+                            if let items = feed.rssFeed?.items {
+                                for item in items.prefix(10) {
+                                    events.append([(item.title)!])
+                                    print(item)
+                                }
+                            }
+                            
+                            
+                            
+                            
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                    
+                }
+            
+            
+
+        }
+        
     }
 }
 
