@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    @EnvironmentObject private var userSettings: UserSettings
+//    @EnvironmentObject private var userSettings: UserSettings
+    
+    func getCurrentTime() -> String{
+        let formatter = DateFormatter()
+        formatter.timeStyle = .long
+       let dateString = formatter.string(from: Date())
+        
+        return dateString
+    }
     
     var body: some View {
-        ExecuteCode {
-            print(userSettings.university)
-        }
         TabView {
-            Text("Home screeen stuff here")
+            Text(getCurrentTime())
              .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
@@ -39,6 +44,8 @@ struct HomeScreenView: View {
         }
     }
 }
+
+
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
