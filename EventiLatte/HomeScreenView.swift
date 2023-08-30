@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    @EnvironmentObject private var userSettings: UserSettings
+    
     var body: some View {
+        ExecuteCode {
+            print(userSettings.university)
+        }
         TabView {
             Text("Home screeen stuff here")
              .tabItem {

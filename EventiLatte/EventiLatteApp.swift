@@ -8,13 +8,39 @@
 import SwiftUI
 import Firebase
 import FirebaseCore
+import FirebaseDatabase
 
 var unis: [String] = []
+class UserSettings: ObservableObject {
+
+    @Published var name: String
+    @Published var email: String
+    @Published var university: String
+
+    init(name: String, email: String, university: String) {
+        self.name = name
+        self.email = email
+        self.university = university
+    }
+}
+struct ExecuteCode : View {
+    init( _ codeToExec: () -> () ) {
+        codeToExec()
+    }
+    
+    var body: some View {
+        EmptyView()
+    }
+}
 @main
 struct EventiLatteApp: App {
     @Environment(\.scenePhase) var scenePhase
     @State var handle: Any!
     @State var isLoggedIn: Bool = false
+    @State var name = ""
+    @State var email = ""
+    @State var university = ""
+    
     func readCSV(inputFile: String) -> [String] {
             if let filepath = Bundle.main.path(forResource: inputFile, ofType: nil) {
                 do {
@@ -52,8 +78,8 @@ struct EventiLatteApp: App {
                                               // The user's ID, unique to the Firebase project.
                                               // Do NOT use this value to authenticate with your backend server,
                                               // if you have one. Use getTokenWithCompletion:completion: instead.
-                                              let uid = user.uid
-                                              let email = user.email
+                                                let uid = user.uid
+                                                let email = user.email
                                                 print("\(uid) + \(email)")
                                                 isLoggedIn = true
                                             } else {
@@ -68,10 +94,34 @@ struct EventiLatteApp: App {
                                 }
             } else {
                 HomeScreenView()
+                    .environmentObject(initUserVars())
             }
                 
             
             
         }
+    }
+    func initUserVars() -> UserSettings {
+        let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        
+        ref.child("users").child(uid!).getData(completion:  { error, snapshot in
+          guard error == nil else {
+            print(error!.localizedDescription)
+            return;
+          }
+            
+            if let value = snapshot?.value as? [String: Any] {
+                name = value["name"] as? String ?? ""
+                email = value["email"] as? String ?? ""
+                university = value["university"] as? String ?? ""
+            }
+//            print(name, email, university)
+//            return UserSettings(name: name, email: email, university: university)
+            
+        });
+//        print(name, email, university)
+        return UserSettings(name: name, email: email, university: university)
     }
 }
