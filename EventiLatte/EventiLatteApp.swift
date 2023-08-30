@@ -69,7 +69,7 @@ struct EventiLatteApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            if !isLoggedIn {
+            if !$isLoggedIn.wrappedValue {
                 ContentView()
                     .onChange(of: scenePhase) { newPhase in
                                     if newPhase == .active {
