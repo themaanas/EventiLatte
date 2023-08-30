@@ -7,20 +7,27 @@
 
 import SwiftUI
 
+
 struct HomeScreenView: View {
-//    @EnvironmentObject private var userSettings: UserSettings
-    
-    func getCurrentTime() -> String{
-        let formatter = DateFormatter()
-        formatter.timeStyle = .long
-       let dateString = formatter.string(from: Date())
-        
-        return dateString
-    }
-    
+    @EnvironmentObject private var userSettings: UserSettings
+    @State var DateString = Date.now.formatted(.dateTime.month().day().year())
     var body: some View {
         TabView {
-            Text(getCurrentTime())
+            VStack{
+                Text("\(DateString)")
+                    .font(.custom("ArchivoBlack-Regular", size: 46))
+                Text("Today")
+                    .font(.custom("ArchivoBlack-Regular", size: 46))
+                
+                List{
+                    Section{
+                        //text()
+                    }
+                }
+                
+                
+            }
+            
              .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
