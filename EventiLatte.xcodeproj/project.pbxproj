@@ -26,6 +26,7 @@
 		AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */; };
 		AEEDCBDB2A9D592900DD40A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */; };
 		AEEDCBDD2A9DBB1200DD40A2 /* us_universities.csv in Resources */ = {isa = PBXBuildFile; fileRef = AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */; };
+		ED9E84812A9F257F007C90F7 /* EventPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9E84802A9F257F007C90F7 /* EventPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		AE8974742A9C4CCC006748CA /* EventiLatteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AEEDCBDA2A9D592900DD40A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEEDCBDC2A9DBB1100DD40A2 /* us_universities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_universities.csv; sourceTree = "<group>"; };
+		ED9E84802A9F257F007C90F7 /* EventPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				0AE736A12A9C56580015769D /* SignInView.swift */,
 				0A6216E02A9DDB730069BCB9 /* ProfileView.swift */,
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
+				ED9E84802A9F257F007C90F7 /* EventPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9E84812A9F257F007C90F7 /* EventPageView.swift in Sources */,
 				0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */,
 				0AE736A22A9C56580015769D /* SignInView.swift in Sources */,
 				0A6216DF2A9DD40F0069BCB9 /* HomeScreenView.swift in Sources */,
