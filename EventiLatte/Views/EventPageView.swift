@@ -17,11 +17,11 @@ struct EventPageView: View {
                     Spacer()
                     HStack {
                         VStack {
-                            Text("Event Name Here")
+                            Text("Valorant Showdown")
                                 .padding(.leading)
                                 .font(.title)
                                 .fontWeight(.black)
-                            Text("Dates and Times Here")
+                            Text("9/1 3:00pm - 9/2 5:00pm")
                                 .foregroundColor(Color.gray)
                         }
                         
