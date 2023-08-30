@@ -20,7 +20,7 @@ struct SignUpView: View {
     var body: some View {
         
         ZStack {
-            Color.white
+            Color("colorBackground")
                 .ignoresSafeArea()
             VStack {
                 TextField("", text: $name)

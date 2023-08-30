@@ -15,6 +15,8 @@ struct SignInView: View {
     @State private var loginSuccess = false
     var body: some View {
         VStack {
+            Color("colorBackground")
+                .ignoresSafeArea()
             TextField("", text: $email)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 8)
