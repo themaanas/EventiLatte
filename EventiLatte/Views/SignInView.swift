@@ -11,6 +11,7 @@ import Firebase
 struct SignInView: View {
     @State private var email = ""
     @State private var password = ""
+    
     @State private var loginSuccess = false
     var body: some View {
         VStack {
