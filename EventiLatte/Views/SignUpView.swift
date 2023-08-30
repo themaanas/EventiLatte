@@ -113,7 +113,7 @@ struct SignUpView: View {
             return []
         } else {
             
-            return Array(unis.filter{ $0.lowercased().contains(searchingFor)})
+            return Array(unis.filter{ $0.lowercased().contains(searchingFor.lowercased())})
         }
     }
     func register() {

@@ -17,52 +17,54 @@ struct DiscoverView: View {
         ExecuteCode {
             
         }
-        
         VStack {
-            NavigationView {
-                List {
+            
+            ZStack {
+                NavigationView {
+                    List {
                         ForEach(articles, id: \.self) { article in
                             Text(article)
                         }
-                 
+                        
                         .listRowSeparator(.hidden)
-                 
+                        
                     }
                     .listStyle(.plain)
-                
-            }.searchable(text: $searchText)
-                .onChange(of: searchText) { searchText in
                     
-                    if !searchText.isEmpty {
-                        articles = events.compactMap { $0.first }.filter { $0.contains(searchText) }
+                }.searchable(text: $searchText)
+                    .onChange(of: searchText) { searchText in
                         
-                    } else {
-                        articles = []
+                        if !searchText.isEmpty {
+                            articles = events.compactMap { $0.first }.filter { $0.lowercased().contains(searchText.lowercased()) }
+                            
+                        } else {
+                            articles = []
+                        }
                     }
-            }
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            
-            
+                    .padding(10)
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                
+                
                 ScrollView(.horizontal) {
-                            LazyHStack {
-                                if $events.count > 0 {
-                                    ForEach(0...$events.count - 1, id: \.self) { index in
-                                        Text(String($events[index].first!.wrappedValue))
-                                        Text("hi")
-                                            .onAppear {
-                                                print(index)
-                                            }
-                                            .padding()
-                                            .background(.white)
-                                            .cornerRadius(8)
+                    LazyHStack {
+                        if $events.count > 0 {
+                            ForEach(0...$events.count - 1, id: \.self) { index in
+                                Text(String($events[index].first!.wrappedValue))
+                                Text("hi")
+                                    .onAppear {
+                                        print(index)
                                     }
-                                }
+                                    .padding()
+                                    .background(.white)
+                                    .cornerRadius(8)
                             }
                         }
+                    }
+                }
                 .background(Color(UIColor.systemGroupedBackground))
                 .onAppear() {
                     print(events)
-//                    events.removeLast()
+                    //                    events.removeLast()
                     if events.count < 1 {
                         let feedURL = URL(string: "https://rutgers.campuslabs.com/engage/events.rss")!
                         let parser = FeedParser(URL: feedURL)
@@ -88,9 +90,10 @@ struct DiscoverView: View {
                     }
                     
                 }
-            
-            
-
+                
+                
+                
+            }
         }
         
     }
