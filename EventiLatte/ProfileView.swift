@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct ProfileView: View {
+    @EnvironmentObject private var userSettings: UserSettings
     var body: some View {
         VStack{
             Image("spooggbob")
@@ -16,8 +17,15 @@ struct ProfileView: View {
                 .scaledToFill()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
-            Text("Sauceboy69")
-            Text("BigBois University")
+            
+            Text("BigCheezer")
+            Text("Cheezeton University")
+            
+            
+            /* Code to later uncomment
+                Pulls users name and school from firebase*/
+            //Text(userSettings.name)
+            //Text(userSettings.university)
             HStack{
                 Text("1028")
                 Text("Following")
