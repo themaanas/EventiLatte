@@ -23,6 +23,12 @@ struct SignUpView: View {
             Color("colorBackground")
                 .ignoresSafeArea()
             VStack {
+                HStack {
+                    Text("Create Account")
+                        .fontWeight(.black)
+                        .font(.title)
+                        .padding(.bottom, 100)
+                }
                 TextField("", text: $name)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
@@ -98,10 +104,11 @@ struct SignUpView: View {
                 }
                 .padding(10)
                 .frame(width:150)
-                .background(Color(red: 235/255, green: 136/255, blue: 66/255))
+                .background(Color.purple)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
                 .padding(20)
+                .fontWeight(.black)
                 
             }
         }
