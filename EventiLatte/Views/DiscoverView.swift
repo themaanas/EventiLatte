@@ -12,7 +12,7 @@ struct DiscoverView: View {
     @State private var events: [[String]] = []
     @State private var searchText = ""
     @State private var searchIsActive = false
-    @State var articles = sampleArticles
+    @State var articles: [String] = []
     var body: some View {
         ExecuteCode {
             
@@ -20,17 +20,26 @@ struct DiscoverView: View {
         
         VStack {
             NavigationView {
-//                List {
-//                        ForEach(articles) { article in
-//                            ArticleRow(article: article)
-//                        }
-//                 
-//                        .listRowSeparator(.hidden)
-//                 
-//                    }
-//                    .listStyle(.plain)
+                List {
+                        ForEach(articles, id: \.self) { article in
+                            Text(article)
+                        }
+                 
+                        .listRowSeparator(.hidden)
+                 
+                    }
+                    .listStyle(.plain)
                 
             }.searchable(text: $searchText)
+                .onChange(of: searchText) { searchText in
+                    
+                    if !searchText.isEmpty {
+                        articles = events.compactMap { $0.first }.filter { $0.contains(searchText) }
+                        
+                    } else {
+                        articles = []
+                    }
+            }
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             
             
@@ -65,7 +74,7 @@ struct DiscoverView: View {
                             print(feed.rssFeed?.title)
                             if let items = feed.rssFeed?.items {
                                 for item in items.prefix(10) {
-                                    events.append([(item.title)!])
+                                    events.append([(item.title)!, (item.description)!])
                                     print(item)
                                 }
                             }
