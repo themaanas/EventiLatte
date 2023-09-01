@@ -65,7 +65,7 @@ struct EventiLatteApp: App {
     init() {
         FirebaseApp.configure()
         unis = readCSV(inputFile: "us_universities.csv")
-        
+        print(unis.count)
     }
     var body: some Scene {
         WindowGroup {
