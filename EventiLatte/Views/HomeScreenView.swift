@@ -10,23 +10,11 @@ import SwiftUI
 
 struct HomeScreenView: View {
     @EnvironmentObject private var userSettings: UserSettings
-    @State var DateString = Date.now.formatted(.dateTime.month().day().year())
     var body: some View {
+    
         TabView {
-            VStack{
-                Text("\(DateString)")
-                    .font(.custom("ArchivoBlack-Regular", size: 46))
-                Text("Today")
-                    .font(.custom("ArchivoBlack-Regular", size: 46))
-                
-                List{
-                    Section{
-                        //text()
-                    }
-                }
-                
-                
-            }
+            
+            BoatingVIew()
             
              .tabItem {
                 Image(systemName: "house.fill")
