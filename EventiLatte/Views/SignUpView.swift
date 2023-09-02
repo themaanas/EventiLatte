@@ -22,13 +22,13 @@ struct SignUpView: View {
         ZStack {
             Color("colorBackground")
                 .ignoresSafeArea()
-            VStack {
-                HStack {
-                    Text("Create Account")
-                        .fontWeight(.black)
-                        .font(.title)
-                        .padding(.bottom, 100)
-                }
+            
+            
+            VStack(alignment: .center){
+                Text("Create Account")
+                    .fontWeight(.black)
+                    .font(.title)
+                    .padding(.bottom, 50)
                 TextField("", text: $name)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
@@ -74,33 +74,11 @@ struct SignUpView: View {
                     .frame(width: 200.0, height: 100.0)
                     .padding(.bottom, -20)
                 
-                TextField("", text: $searchingFor)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
-                    .foregroundColor(.black)
-                    .textFieldStyle(.plain)
-                    .placeholder(when: searchingFor.isEmpty) {
-                        Text("University/College")
-                            .foregroundColor(Color(red: 200/255, green: 200/255, blue: 200/255))
-                            .bold()
-                    }
-                    .background(Color(red: 230/255, green: 230/255, blue: 230/255))
-                    .cornerRadius(7)
-                    .frame(width: 200.0, height: 100.0)
-                    
-                List {
-                    ForEach(results, id: \.self) { uni in
-                        Button(uni) {
-                            searchingFor = uni
-                        }
-                    }
-                }
-                .background(Color.white)
-                .frame(width: 400, height: 200)
                 
-                Button("Sign Up") {
-                    print("hi")
-                    register()
+                    
+                NavigationLink(destination: chooseCollegeView())
+                {
+                    Text("Continue")
                 }
                 .padding(10)
                 .frame(width:150)
@@ -111,18 +89,18 @@ struct SignUpView: View {
                 .fontWeight(.black)
                 
             }
+                .frame(
+                     minWidth: 0,
+                     maxWidth: .infinity,
+                     minHeight: 0,
+                     maxHeight: .infinity,
+                     alignment: .topLeading
+                   )
+                
         }
         
     }
     
-    var results: [String] {
-        if searchingFor.isEmpty {
-            return []
-        } else {
-            
-            return Array(unis.filter{ $0.lowercased().contains(searchingFor.lowercased())})
-        }
-    }
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
@@ -131,7 +109,7 @@ struct SignUpView: View {
                 let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
                 let uid = Auth.auth().currentUser?.uid
                 
-                ref.child("users").child(uid!).setValue(["email": email, "name": name, "university": searchingFor])
+                ref.child("users").child(uid!).setValue(["email": email, "name": name])
             }
         }
     }
