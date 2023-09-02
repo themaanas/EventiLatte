@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
+
 struct EventPageView: View {
-    @Binding var article: [String]
+    @Binding var article: Event
     @State var startDate: String = ""
     @State var endDate: String = ""
     var body: some View {
@@ -20,16 +22,16 @@ struct EventPageView: View {
                     Spacer()
                     HStack {
                         VStack {
-                            Text(article[0])
+                            Text("\(article.title)")
                                 .padding(.leading)
                                 .font(.title)
                                 .fontWeight(.black)
                             Text("\($startDate.wrappedValue) - \($endDate.wrappedValue)")
                                 .foregroundColor(Color.gray)
                                 .onAppear {
-                                    print(article[3])
-                                    let string1 = article[3]
-                                    let string2 = article[4]
+//                                    print(article[3])
+                                    let string1 = "\(article.startDate)"
+                                    let string2 = "\(article.endDate)"
                                     let formatter4 = DateFormatter()
                                     formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
                                     let date1 = formatter4.date(from: string1)
@@ -58,12 +60,12 @@ struct EventPageView: View {
                 
                 Spacer()
                 
-                AsyncImage(url: URL(string: article[5]))
+                AsyncImage(url: URL(string: "\(article.imageURL)"))
                 
                 Spacer()
                 
                 HStack {
-                    Text(article[1].replacingOccurrences(of: "*n", with: "\n"))
+                    Text("\(article.summary)".replacingOccurrences(of: "*n", with: "\n"))
                         .padding()
                     Spacer()
                 }

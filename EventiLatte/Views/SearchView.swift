@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct SearchView: View {
-    @Binding var events: [[String]]
-    @State var articles: [[String]] = []
+    @Binding var events: [Event]
+    @State var articles: [Event] = []
     @State private var searchText = ""
     var body: some View {
         NavigationView {
 //            EmptyView()
-            List($articles, id: \.self) { article in
+            List($articles) { article in
                 NavigationLink(destination: EventPageView(article: article)) {
-                    Text(article[0].wrappedValue)
+                    Text(article.title.wrappedValue)
                 }
             }
 //            List($articles.wrappedValue, id: \.self) { article in
@@ -39,11 +39,7 @@ struct SearchView: View {
         .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always))
         .onChange(of: searchText) { searchText in
             if !searchText.isEmpty {
-                articles = events.filter { (dataArray:[String]) -> Bool in
-                    return dataArray.filter({ (string) -> Bool in
-                        return string.contains(searchText.lowercased())
-                    }).count > 0
-                }
+                articles = events.filter { $0.title.contains(searchText.lowercased()) }
 //                articles = events.compactMap { $0.first }.filter { $0.lowercased().contains(searchText.lowercased()) }
 
             } else {
