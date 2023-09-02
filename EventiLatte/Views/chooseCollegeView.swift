@@ -12,6 +12,10 @@ import FirebaseDatabaseSwift
 
 struct chooseCollegeView: View {
     @State private var searchingFor = ""
+    @Binding var name: String
+    @Binding var email: String
+    @Binding var password: String
+    
     var body: some View {
         VStack{
             Text("Choose Your School")
@@ -53,18 +57,25 @@ struct chooseCollegeView: View {
         }
     }
     func register() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
                 let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
                 let uid = Auth.auth().currentUser?.uid
                 
-                ref.child("users").child(uid!).setValue(["university": searchingFor])
+                ref.child("users").child(uid!).setValue(["email": email, "name": name, "password": password, "univeristy": searchingFor])
+                
+            }
+        }
         
     }
 }
 
 
 
-struct chooseCollegeView_Previews: PreviewProvider {
-    static var previews: some View {
-        chooseCollegeView()
-    }
-}
+//struct chooseCollegeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        chooseCollegeView()
+//    }
+//}
