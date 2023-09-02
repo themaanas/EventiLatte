@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EventPageView: View {
+    @Binding var article: [String]
+    @State var startDate: String = ""
+    @State var endDate: String = ""
     var body: some View {
         
         ScrollView {
@@ -17,12 +20,24 @@ struct EventPageView: View {
                     Spacer()
                     HStack {
                         VStack {
-                            Text("Valorant Showdown")
+                            Text(article[0])
                                 .padding(.leading)
                                 .font(.title)
                                 .fontWeight(.black)
-                            Text("9/1 3:00pm - 9/2 5:00pm")
+                            Text("\($startDate.wrappedValue) - \($endDate.wrappedValue)")
                                 .foregroundColor(Color.gray)
+                                .onAppear {
+                                    print(article[3])
+                                    let string1 = article[3]
+                                    let string2 = article[4]
+                                    let formatter4 = DateFormatter()
+                                    formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                    let date1 = formatter4.date(from: string1)
+                                    let date2 = formatter4.date(from: string2)
+                                    formatter4.dateFormat = "M/d h:mma"
+                                    startDate = formatter4.string(from: date1!)
+                                    endDate = formatter4.string(from: date2!)
+                                }
                         }
                         
                         Spacer()
@@ -43,12 +58,12 @@ struct EventPageView: View {
                 
                 Spacer()
                 
-                Text("Image Goes Here")
+                AsyncImage(url: URL(string: article[5]))
                 
                 Spacer()
                 
                 HStack {
-                    Text("Event Description Goes Here")
+                    Text(article[1].replacingOccurrences(of: "*n", with: "\n"))
                         .padding()
                     Spacer()
                 }
@@ -57,8 +72,8 @@ struct EventPageView: View {
     }
 }
 
-struct EventPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventPageView()
-    }
-}
+//struct EventPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EventPageView()
+//    }
+//}
