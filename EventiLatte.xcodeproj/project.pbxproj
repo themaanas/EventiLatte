@@ -17,6 +17,8 @@
 		0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A32A9C584A0015769D /* SignUpView.swift */; };
 		AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE3EDE8D2A9EE32E00666B8B /* FeedKit */; };
 		AE3EDE902A9EE35500666B8B /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */; };
+		AE5B85202AA19DCA001E988F /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AE5B851F2AA19DCA001E988F /* SwiftyJSON */; };
+		AE5B85222AA2F461001E988F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B85212AA2F461001E988F /* SearchView.swift */; };
 		AE8974582A9C4CCB006748CA /* EventiLatteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */; };
 		AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8974592A9C4CCB006748CA /* ContentView.swift */; };
 		AE89745C2A9C4CCC006748CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE89745B2A9C4CCC006748CA /* Assets.xcassets */; };
@@ -58,6 +60,7 @@
 		0AE736A52A9C592A0015769D /* EventiLatte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventiLatte.entitlements; sourceTree = "<group>"; };
 		0AE736A62A9C635E0015769D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		AE5B85212AA2F461001E988F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AE8974542A9C4CCB006748CA /* EventiLatte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventiLatte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8974572A9C4CCB006748CA /* EventiLatteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventiLatteApp.swift; sourceTree = "<group>"; };
 		AE8974592A9C4CCB006748CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 				0A6216DB2A9DD0100069BCB9 /* FirebaseDatabaseSwift in Frameworks */,
 				0A6216D92A9DD0100069BCB9 /* FirebaseDatabase in Frameworks */,
 				AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */,
+				AE5B85202AA19DCA001E988F /* SwiftyJSON in Frameworks */,
 				AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */,
+				AE5B85212AA2F461001E988F /* SearchView.swift */,
 				AE8974592A9C4CCB006748CA /* ContentView.swift */,
 				0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */,
 				0AE736A12A9C56580015769D /* SignInView.swift */,
@@ -216,6 +221,7 @@
 				0A6216D82A9DD0100069BCB9 /* FirebaseDatabase */,
 				0A6216DA2A9DD0100069BCB9 /* FirebaseDatabaseSwift */,
 				AE3EDE8D2A9EE32E00666B8B /* FeedKit */,
+				AE5B851F2AA19DCA001E988F /* SwiftyJSON */,
 			);
 			productName = EventiLatte;
 			productReference = AE8974542A9C4CCB006748CA /* EventiLatte.app */;
@@ -292,6 +298,7 @@
 			packageReferences = (
 				AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */,
+				AE5B851E2AA19DCA001E988F /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = AE8974552A9C4CCB006748CA /* Products */;
 			projectDirPath = "";
@@ -338,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5B85222AA2F461001E988F /* SearchView.swift in Sources */,
 				ED9E84812A9F257F007C90F7 /* EventPageView.swift in Sources */,
 				0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */,
 				0AE736A22A9C56580015769D /* SignInView.swift in Sources */,
@@ -693,6 +701,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		AE5B851E2AA19DCA001E988F /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -718,6 +734,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
+		};
+		AE5B851F2AA19DCA001E988F /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5B851E2AA19DCA001E988F /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		AEEDCBD82A9D521B00DD40A2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
