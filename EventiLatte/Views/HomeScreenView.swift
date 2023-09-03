@@ -15,21 +15,23 @@ struct HomeScreenView: View {
         TabView {
             
             BoatingVIew()
-            
              .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
               }
+            
             DiscoverView()
                  .tabItem {
                     Image(systemName: "magnifyingglass.circle.fill")
                     Text("Search")
                   }
-            Text("NOTIFS stuff ")
+            
+            notiView()
                  .tabItem {
                     Image(systemName: "bell.fill")
                     Text("Notifications")
                   }
+            
             ProfileView()
                  .tabItem {
                     Image(systemName: "person.fill")
