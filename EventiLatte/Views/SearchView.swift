@@ -39,7 +39,7 @@ struct SearchView: View {
         .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always))
         .onChange(of: searchText) { searchText in
             if !searchText.isEmpty {
-                articles = events.filter { $0.title.contains(searchText.lowercased()) }
+                articles = events.filter { $0.title.lowercased().contains(searchText.lowercased()) }
 //                articles = events.compactMap { $0.first }.filter { $0.lowercased().contains(searchText.lowercased()) }
 
             } else {
