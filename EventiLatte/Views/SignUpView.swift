@@ -29,6 +29,7 @@ struct SignUpView: View {
                     .fontWeight(.black)
                     .font(.title)
                     .padding(.bottom, 50)
+                    .foregroundColor(Color("colorFont"))
                 TextField("", text: $name)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)

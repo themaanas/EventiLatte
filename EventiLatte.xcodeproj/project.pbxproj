@@ -18,6 +18,7 @@
 		0AE736A22A9C56580015769D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A12A9C56580015769D /* SignInView.swift */; };
 		0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A32A9C584A0015769D /* SignUpView.swift */; };
 		0AF045C12AA43F58004583D4 /* notificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF045C02AA43F58004583D4 /* notificationHandler.swift */; };
+		0AF045C42AA6DDA1004583D4 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0AF045C32AA6DDA1004583D4 /* CachedAsyncImage */; };
 		AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE3EDE8D2A9EE32E00666B8B /* FeedKit */; };
 		AE3EDE902A9EE35500666B8B /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EDE8F2A9EE35500666B8B /* DiscoverView.swift */; };
 		AE5B85202AA19DCA001E988F /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AE5B851F2AA19DCA001E988F /* SwiftyJSON */; };
@@ -90,6 +91,7 @@
 				0A6216DB2A9DD0100069BCB9 /* FirebaseDatabaseSwift in Frameworks */,
 				0A6216D92A9DD0100069BCB9 /* FirebaseDatabase in Frameworks */,
 				AEEDCBD92A9D521B00DD40A2 /* FirebaseAuth in Frameworks */,
+				0AF045C42AA6DDA1004583D4 /* CachedAsyncImage in Frameworks */,
 				AE5B85202AA19DCA001E988F /* SwiftyJSON in Frameworks */,
 				AE3EDE8E2A9EE32E00666B8B /* FeedKit in Frameworks */,
 			);
@@ -202,8 +204,8 @@
 				0A6216E02A9DDB730069BCB9 /* ProfileView.swift */,
 				0A7AD9AF2AA1A88800101A39 /* chooseCollegeView.swift */,
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
-				0A061F0A2A9F465500FC3EC1 /* BoatingVIew.swift */,
 				0AE4AE232AA42C8E0020A7C7 /* notiView.swift */,
+				0A061F0A2A9F465500FC3EC1 /* BoatingVIew.swift */,
 				ED9E84802A9F257F007C90F7 /* EventPageView.swift */,
 			);
 			path = Views;
@@ -231,6 +233,7 @@
 				0A6216DA2A9DD0100069BCB9 /* FirebaseDatabaseSwift */,
 				AE3EDE8D2A9EE32E00666B8B /* FeedKit */,
 				AE5B851F2AA19DCA001E988F /* SwiftyJSON */,
+				0AF045C32AA6DDA1004583D4 /* CachedAsyncImage */,
 			);
 			productName = EventiLatte;
 			productReference = AE8974542A9C4CCB006748CA /* EventiLatte.app */;
@@ -308,6 +311,7 @@
 				AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */,
 				AE5B851E2AA19DCA001E988F /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0AF045C22AA6DDA1004583D4 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = AE8974552A9C4CCB006748CA /* Products */;
 			projectDirPath = "";
@@ -705,6 +709,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0AF045C22AA6DDA1004583D4 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		AE3EDE8C2A9EE32E00666B8B /* XCRemoteSwiftPackageReference "FeedKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nmdias/FeedKit.git";
@@ -741,6 +753,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AEEDCBD72A9D521B00DD40A2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		0AF045C32AA6DDA1004583D4 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AF045C22AA6DDA1004583D4 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 		AE3EDE8D2A9EE32E00666B8B /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;
