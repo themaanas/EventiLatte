@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BoatingVIew: View {
+    @EnvironmentObject private var userSettings: UserSettings
     @State var DateString = Date.now.formatted(.dateTime.month().day().year())
     let notify = NotificationHandler()
     var body: some View {
@@ -18,17 +19,22 @@ struct BoatingVIew: View {
                 Text("\(DateString)")
                     .font(.custom("ArchivoBlack-Regular", size: 24))
                     .padding(.leading, 10)
+                    .foregroundColor(Color("colorFont"))
                 Text("Today")
                     .font(.custom("ArchivoBlack-Regular", size: 32))
                     .padding(.leading, 10)
+                    .foregroundColor(Color("colorFont"))
                 List{
-                    HStack(){
-                        Text("Events")
-                            .font(.custom("ArchivoBlack-Regular", size: 46))
+                    VStack(){
+                        Text("Saved Events")
+                            .font(.custom("ArchivoBlack-Regular", size: 40))
+                        
+                        
                         
                         
                     }.listRowSeparator(.hidden)
                         .listRowBackground(Color("colorBackground"))
+                    
                 }.background(Color("colorBackground"))
                     .scrollContentBackground(.hidden)
             }

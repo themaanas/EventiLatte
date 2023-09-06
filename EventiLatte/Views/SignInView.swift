@@ -19,6 +19,7 @@ struct SignInView: View {
                 .ignoresSafeArea()
             VStack {
                 Text("Login")
+                    .foregroundColor(Color("colorFont"))
                     
                 TextField("", text: $email)
                     .padding(.horizontal, 10)
