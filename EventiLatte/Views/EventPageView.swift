@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
-
+import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseSwift
 
 
 struct EventPageView: View {
     @Binding var article: Event
     @State var startDate: String = ""
     @State var endDate: String = ""
+    @EnvironmentObject private var userSettings: UserSettings
     var body: some View {
         
         ScrollView {
@@ -29,7 +32,7 @@ struct EventPageView: View {
                             Text("\($startDate.wrappedValue) - \($endDate.wrappedValue)")
                                 .foregroundColor(Color.gray)
                                 .onAppear {
-//                                    print(article[3])
+                                    //                                    print(article[3])
                                     let string1 = "\(article.startDate)"
                                     let string2 = "\(article.endDate)"
                                     let formatter4 = DateFormatter()
@@ -45,7 +48,19 @@ struct EventPageView: View {
                         Spacer()
                         
                         Button(action: {
-                            print("Button Pressed")
+                            let uid = Auth.auth().currentUser?.uid
+                            let university = userSettings.university
+                            
+                            let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
+                            
+                            var refHandle = ref.observe(DataEventType.value, with: { snapshot in
+                                
+                                
+                                ref.child("users").child(uid!).setValue(["savedEvents": [article.id]])
+                                
+                                
+                                print("Button Pressed")
+                            })
                         })  {
                             Image(systemName: "plus.app.fill")
                                 .resizable()
@@ -56,26 +71,28 @@ struct EventPageView: View {
                                 .padding(.trailing, 30)
                         }
                     }
-                }
-                
-                Spacer()
-                
-                AsyncImage(url: URL(string: "\(article.imageURL)"))
-                
-                Spacer()
-                
-                HStack {
-                    Text("\(article.summary)".replacingOccurrences(of: "*n", with: "\n"))
-                        .padding()
+                    
+                    
+                    
                     Spacer()
+                    
+                    AsyncImage(url: URL(string: "\(article.imageURL)"))
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("\(article.summary)".replacingOccurrences(of: "*n", with: "\n"))
+                            .padding()
+                        Spacer()
+                    }
                 }
             }
         }
     }
+    
+    //struct EventPageView_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        EventPageView()
+    //    }
+    //}
 }
-
-//struct EventPageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EventPageView()
-//    }
-//}
