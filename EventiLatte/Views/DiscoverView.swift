@@ -54,7 +54,9 @@ struct Event: Identifiable {
     @State var startDate: String
     @State var endDate: String
     @State var imageURL: String
+    @State var shortDateString: String
     @State var categories: [String]
+    
 }
 
 struct DiscoverView: View {
@@ -110,7 +112,6 @@ struct DiscoverContentView: View {
         }
         return nil
     }
-    
     var body: some View {
         NavigationView {
             
@@ -125,35 +126,87 @@ struct DiscoverContentView: View {
                             TabView(selection: $stringIndex) {
                                 
                                 ForEach($events.filter{$0.categories.wrappedValue.contains("Welcome Week") && $0.imageURL.wrappedValue != "nil"}) { $event in
-                                             //3
-//                                    ExecuteCode{
-//                                        print(event.imageURL)
-//                                    }
-                                    
-                                    
+                                    	
                                     NavigationLink(destination: EventPageView(article: $event)) {
                                         
                                         GeometryReader {geometry in
                                             CachedAsyncImage(url: URL(string: "\(event.imageURL)")){ image in
-                                                ZStack {
-                                                    
-                                                    image.resizable().scaledToFit()
-                                                    VStack {
-                                                        Text("\(event.title)")
-                                                            .padding(0)
-                                                            .foregroundColor(.white)
-                                                            .frame(width: geometry.size.width, height: 200, alignment: .bottomLeading)
-                                                            .padding(.leading, 40)
-                                                            .padding(.bottom, 20)
-                                                            .background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0), .black.opacity(1)]), startPoint: .top, endPoint: .bottom))
-//                                                            .padding(.bottom, 30)
-                                                    }.frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
-    //                                                    .background(.red)
-//                                                    ExecuteCode {
-//                                                        tagIndex += 1
-//                                                    }
+                                                ZStack{
+                                                    ZStack(alignment: .bottom) {
                                                         
+                                                        image.resizable().scaledToFill().frame(width: geometry.size.width, height: 250, alignment: .bottomLeading).padding(.top, 0)
+                                                        
+                                                        
+                                                        ZStack(alignment: .bottomLeading) {
+//                                                            Color.clear
+                                                            Rectangle()
+                                                                    .fill(.thinMaterial)
+                                                                    .frame(height: 100)
+                                                                    .mask {
+                                                                        VStack(spacing: 0) {
+                                                                            LinearGradient(colors: [Color.black.opacity(0),  // sin(x * pi / 2)
+                                                                                                    Color.black.opacity(0.383),
+                                                                                                    Color.black.opacity(0.707),
+                                                                                                    Color.black.opacity(0.924),
+                                                                                                    Color.black],
+                                                                                           startPoint: .top,
+                                                                                           endPoint: .bottom)
+                                                                                .frame(height: 70)
+                                                                            
+                                                                            Rectangle()
+                                                                        }
+                                                                    }
+                                                                    .frame(height:70)
+                                                            VStack(alignment: .leading) {
+                                                                Text("\(event.title)")
+                                                                    .multilineTextAlignment(.leading)
+                                                                    .font(.system(size: 26))
+                                                                    .fontWeight(.bold)
+                                                                    .padding(0)
+                                                                    .foregroundColor(.white)
+                                                                    .frame(width: geometry.size.width - 50, height: 20, alignment: .bottomLeading)
+                                                                    .padding(.leading, 20)
+                                                                    .padding(.bottom, 3)
+    //                                                                .background(.red)
+                                                                Text("\(event.shortDateString)")
+                                                                    .multilineTextAlignment(.leading)
+                                                                    .font(.system(size: 16))
+    //                                                                .fontWeight(.bold)
+                                                                    .padding(0)
+                                                                    .foregroundColor(Color(hex: 0xe3e3e3))
+                                                                    .frame(width: geometry.size.width - 120, height: 10, alignment: .bottomLeading)
+                                                                    .padding(.leading, 20)
+                                                                    .padding(.bottom, 10)
+    //                                                                .background(.red)
+                                                                
+                                                            }
+                                                            
+                                                        }
+                                                        
+        //                                                    .background(.red)
+    //                                                    ExecuteCode {
+    //                                                        tagIndex += 1
+    //                                                    }
+                                                            
+                                                    }.frame(width: geometry.size.width, height: 250, alignment: .bottom).clipShape(RoundedRectangle(cornerRadius: 20))
+//                                                    ZStack(alignment: .top) {
+//                                                        VStack(alignment: .trailing) {
+//                                                            ForEach(event.categories, id: \.self) { category in
+//                                                                Text(category.uppercased())
+//                                                                    .foregroundColor(.white)
+//                                                                    .fontWeight(.black)
+//                                                                    .font(.system(size: 11))
+//                                                                    .frame(height:15)
+//                                                                    .padding(.leading, 5)
+//                                                                    .padding(.trailing, 5)
+//                                                                    .background(Color("colorBackgroundSecondary"))
+//                                                                    .cornerRadius(5)
+//                                                            }
+//                                                        }
+//                                                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .topTrailing).padding(.trailing, 15).padding(.top, 15)
+//                                                    }.frame(width: geometry.size.width, height: 250, alignment: .top).clipShape(RoundedRectangle(cornerRadius: 20))
                                                 }
+                                                
                                             } placeholder: {
                                                 ProgressView()
                                             }
@@ -162,12 +215,13 @@ struct DiscoverContentView: View {
                                         
                                         
                                         
-                                    }.tag(event.id)
+                                    }.tag(event.id).frame(width: screenSize.size.width - 20,height: 250)
                                 }
-                                    }
+                            }
+//                            .frame(height:250)
 //                            .tabViewStyle(.page(indexDisplayMode: .never))
 //                            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                            .frame(width: screenSize.size.width, height: 250)
+                            .frame(width: screenSize.size.width, height: 350)
                                     .navigationTitle("Discover")
     //                                .navigationBarTitleDisplayMode(.inline)
                                     .toolbar {
@@ -213,163 +267,7 @@ struct DiscoverContentView: View {
                             
                             
                             
-            //                NavigationView {
-            //        //            EmptyView()
-            //                    List {
-            //                        ForEach($articles.wrappedValue, id: \.self) { article in
-            //                            Text(article)
-            //                        }
-            //
-            //        //                .listRowSeparator(.hidden)
-            //
-            //                    }
-            ////                    .isHidden(!$searchIsActive.wrappedValue)
-            //                    .frame(height: 500)
-            //                    .listStyle(.plain)
-            //                    .background(.red)
-            //    //                .frame(maxHeight: .infinity)
-            //
-            //                }
-            //                .frame(height: 500)
-            //                .searchable(text: $searchText)
-            //                .onChange(of: searchText) { searchText in
-            //                    if !searchText.isEmpty {
-            //                        articles = events.compactMap { $0.first }.filter { $0.lowercased().contains(searchText.lowercased()) }
-            //
-            //                    } else {
-            //                        articles = []
-            //                    }
-            //                }
-            ////
-            //                .padding(10)
-                            HStack {
-                                Text("Outdoor Events").fontWeight(.bold)
-                                    
-//                                    .frame(alignment: .leading)
-                                Spacer()
-                            }
                             
-                            ScrollView(.horizontal) {
-                                
-                                LazyHStack {
-                                    if $events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}.count > 0 {
-                                        ForEach(0...$events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}.count - 1, id: \.self) { index in
-//                                            let event = $events[index]
-                                            
-                                            ZStack {
-                                                ZStack(alignment: .top){
-                                                    Color.clear
-                                                    CachedAsyncImage(url: URL(string: "\($events[index].imageURL.wrappedValue)")){ image in
-//                                                        Color.clear
-                                                        ZStack {
-                                                            image.resizable().scaledToFit().clipShape(RoundedRectangle(cornerRadius: 20))
-                                                            
-                                                        }.frame(width: 240, height: 150)
-                                                            .offset(y: 5)
-//                                                            .clipShape(RoundedRectangle(cornerRadius: 20))
-//                                                        .padding()
-                                                        
-//                                                            .offset(y: 5)
-                                                            
-                                                            
-                                                    } placeholder: {
-                                                        ProgressView()
-                                                    }
-                                                }
-//                                                ZStack(alignment: .bottomLeading) {
-//                                                    Color.clear
-//                                                    Text(String($events[index].title.wrappedValue))
-//                                                        .frame(width: 250)
-//                                                        .padding(.bottom, 5)
-//                                                }
-                                                
-                                                
-                                                
-                                            }
-                                            .frame(width: 250, height: 200)
-                                            .background(Color("colorBackground"))
-                                            .cornerRadius(20)
-                                            
-                                            
-                                        }
-                                    }
-                                }
-                            }
-                            .background(Color("colorBackground"))
-                            .onAppear() {
-                                print(events)
-                                self.timer = Timer.publish(every: 5, on: .main, in: .common)
-                                self.connectedTimer = self.timer.connect()
-                                var ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
-                                let uid = Auth.auth().currentUser?.uid
-                                
-                                var university = ""
-                                ref.child("users").child(uid!).getData(completion:  { error, snapshot in
-                                    guard error == nil else {
-                                    print(error!.localizedDescription)
-                                    return;
-                                    }
-                                    
-                                    if let value = snapshot?.value as? [String: Any] {
-                                        university = value["university"] as? String ?? ""
-                                        print("/unis/" + university + "/events/")
-                                        ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
-                                        var refHandle = ref.observe(DataEventType.value, with: { snapshot in
-                                            let data = JSON(snapshot.value as Any)
-                    //                        print(data)
-                                            for (key,subJson):(String, JSON) in data {
-                                                events.append(Event(title: subJson["title"].stringValue,
-                                                                    summary: subJson["summary"].stringValue,
-                                                                    id: key,
-                                                                    startDate: subJson["startDate"].stringValue,
-                                                                    endDate: subJson["endDate"].stringValue,
-                                                                    imageURL: subJson["imageURL"].stringValue,
-                                                                    categories: subJson["categories"].arrayValue.map { $0.stringValue}))
-                                            }
-                    //                        dictionaries.forEach({ (key, value) in
-                    //                            print(value)
-                    //                            let convertValue = value as! [String: Any]
-                    ////                            let output = convertToDictionary(text: "\(value)")
-                    ////                            print(output)
-                    //                            events.append([convertValue["title"] as? String ?? "", convertValue["summary"] as? String ?? ""])
-                    //                        })
-                    //                        let first = (dictionaries?.first?.value)! as! [String: Any]
-                    //                        print(first["categories"])
-                            //                if let value = snapshot?.value as? [String: Any] {
-                            //                  university = value["university"] as? String ?? ""
-                            //                }
-                                        })
-                                    }
-                                });
-                                
-                                
-                                //                    events.removeLast()
-                    //            if $events.count < 1 {
-                    //                let feedURL = URL(string: "https://rutgers.campuslabs.com/engage/events.rss")!
-                    //                let parser = FeedParser(URL: feedURL)
-                    //                let result = parser.parse()
-                    //                switch result {
-                    //                case .success(let feed):
-                    //
-                    //                    // Grab the parsed feed directly as an optional rss, atom or json feed object
-                    //                    print(feed.rssFeed?.title)
-                    //                    print(feed.rssFeed?.items?.count)
-                    //                    if let items = feed.rssFeed?.items {
-                    //                        for item in items.prefix(10) {
-                    //                            events.append([(item.title)!, (item.description)!])
-                    //                            print(item)
-                    //                        }
-                    //                    }
-                    //
-                    //
-                    //
-                    //
-                    //                case .failure(let error):
-                    //                    print(error)
-                    //                }
-                    //            }
-                                
-                            }
                         }
                         
                     }
@@ -380,8 +278,126 @@ struct DiscoverContentView: View {
             
             
         }.background(Color("colorBackground").ignoresSafeArea())
+            .onAppear() {
+                print(events)
+                self.timer = Timer.publish(every: 5, on: .main, in: .common)
+                self.connectedTimer = self.timer.connect()
+                var ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
+                let uid = Auth.auth().currentUser?.uid
+                
+                var university = ""
+                ref.child("users").child(uid!).getData(completion:  { error, snapshot in
+                    guard error == nil else {
+                    print(error!.localizedDescription)
+                    return;
+                    }
+                    
+                    if let value = snapshot?.value as? [String: Any] {
+                        university = value["university"] as? String ?? ""
+                        print("/unis/" + university + "/events/")
+                        ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
+                        var refHandle = ref.observe(DataEventType.value, with: { snapshot in
+                            let data = JSON(snapshot.value as Any)
+                            
+    //                        print(data)
+                            for (key,subJson):(String, JSON) in data {
+                                let string1 = "\(subJson["startDate"].stringValue)"
+                                let string2 = "\(subJson["endDate"].stringValue)"
+                                let formatter4 = DateFormatter()
+                                formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                let date1 = formatter4.date(from: string1)
+                                let date2 = formatter4.date(from: string2)
+                                formatter4.dateFormat = "M/d h:mma"
+                                var outputString = "\(formatter4.string(from: date1 ?? Date())) - \(formatter4.string(from: date2 ?? Date()))"
+                                if (Calendar.current.isDate(date1 ?? Date(), inSameDayAs:date2 ?? Date())) {
+                                    
+                                    outputString = "\(formatter4.string(from: date1 ?? Date())) - "
+                                    formatter4.dateFormat = "h:mma"
+                                    outputString = outputString + "\(formatter4.string(from: date2 ?? Date()))"
+                                }
+                                events.append(Event(title: subJson["title"].stringValue,
+                                                    summary: subJson["summary"].stringValue,
+                                                    id: key,
+                                                    startDate: subJson["startDate"].stringValue,
+                                                    endDate: subJson["endDate"].stringValue,
+                                                    imageURL: subJson["imageURL"].stringValue,
+                                                    shortDateString: outputString,
+                                                    categories: subJson["categories"].arrayValue.map { $0.stringValue}))
+                            }
+                        })
+                    }
+                });
+                
+            }
         
         
+    }
+}
+
+struct InterestListView: View {
+    
+    @Binding var events: [Event]
+    @Binding var interest: String
+    
+    var body: some View {
+        HStack {
+            Text($interest.wrappedValue).fontWeight(.bold).padding(.leading, 10)
+            Spacer()
+        }
+        
+        ScrollView(.horizontal) {
+            
+            LazyHStack {
+                if $events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}.count > 0 {
+                    
+                    ForEach($events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}) { $event in
+                        NavigationLink(destination: EventPageView(article: $event)) {
+                            
+                            ZStack {
+                                ZStack(alignment: .top){
+                                    Color.clear
+                                    CachedAsyncImage(url: URL(string: "\(event.imageURL)")){ image in
+                                        //                                                        Color.clear
+                                        ZStack {
+                                            image.resizable().scaledToFit().clipShape(RoundedRectangle(cornerRadius: 20))
+                                            
+                                        }.frame(width: 250, height: 150)
+                                        
+                                    } placeholder: {
+                                        ProgressView()
+                                    }.shadow(color: Color.black.opacity(0.7), radius: 10, y: 0)
+                                }
+                                ZStack(alignment: .bottomLeading) {
+                                    Color.clear
+                                    VStack(spacing:0) {
+                                        Text(String(event.title))
+                                            .padding(.trailing, 50)
+                                            .frame(width: 250, height: 10, alignment: .leading)
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.white)
+                                            .fontWeight(.bold)
+                                            .padding(.bottom, 8)
+                                        Text(String(event.shortDateString))
+                                            .frame(width: 250, height: 10, alignment: .leading)
+                                            .font(.system(size: 10))
+                                            .foregroundColor(Color(hex: 0xd0c3eb))
+                                            .padding(.bottom, 10)
+                                    }.frame(alignment: .leading).padding(.leading, 25)
+                                    
+                                }
+                                
+                                
+                                
+                            }
+                            .frame(width: 250, height: 200)
+                            .background(Color("colorBackgroundSecondary"))
+                            .cornerRadius(20)
+                        }
+                        
+                    }
+                }
+            }.padding(.leading, 10)
+        }
     }
 }
 
