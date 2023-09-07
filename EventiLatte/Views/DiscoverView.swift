@@ -291,16 +291,12 @@ struct DiscoverContentView: View {
                 let uid = Auth.auth().currentUser?.uid
                 
                 var university = ""
-                ref.child("users").child(uid!).getData(completion:  { error, snapshot in
-                    guard error == nil else {
-                    print(error!.localizedDescription)
-                    return;
-                    }
+                ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
                     
-                    if let value = snapshot?.value as? [String: Any] {
+                    if let value = snapshot.value as? [String: Any] {
                         
                         interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
-                        university = JSON(value)["university"] as? String ?? ""
+                        university = JSON(value)["university"].stringValue
                         print("/unis/" + university + "/events/")
                         ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
                         var refHandle = ref.observe(DataEventType.value, with: { snapshot in

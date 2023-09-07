@@ -16,6 +16,7 @@ struct EventPageView: View {
     @State var startDate: String = ""
     @State var endDate: String = ""
     @EnvironmentObject private var userSettings: UserSettings
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var events: [Event] = []
     var body: some View {
         
@@ -54,13 +55,13 @@ struct EventPageView: View {
                             
                             let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference().child("users").child(uid!).child("savedEvents")
                             
-                            var refHandle = ref.observe(DataEventType.value, with: { snapshot in
+                            var refHandle = ref.observeSingleEvent(of: .value, with: { snapshot in
                                 var data = JSON(snapshot.value as Any).arrayValue.map { $0.stringValue}
                                 data.append(article.id)
-                                ref.setValue([data])
+                                ref.setValue(data)
                                 
                                 
-                                print("Button Pressed")
+                                self.presentationMode.wrappedValue.dismiss()
                             })
                         })  {
                             Image(systemName: "plus.app.fill")
