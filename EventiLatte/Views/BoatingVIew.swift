@@ -38,11 +38,58 @@ struct BoatingVIew: View {
                 }.background(Color("colorBackground"))
                     .scrollContentBackground(.hidden)
             }
+        }.onAppear() {
+            if let past = Calendar.current.date(byAdding: .day, value: 1, to: Date()) {
+
+                    let df = DateFormatter()
+                    
+
+                    df.dateStyle = .short
+                df.dateFormat = "EEEE, MMM d"
+//                    df.timeStyle = .short
+                    df.doesRelativeDateFormatting = true
+//                past.formatted(.relative(presentation: .numeric)) // "in 1 week"
+                print(format(date: past)) // "next week"
+
+
+                
+            }
         }
     }
+    
+    func format(date: Date) -> String {
+          let calendar = Calendar.current
+      if calendar.isDateInToday(date){
+              let df = DateFormatter()
+              df.dateStyle = .short
+              df.timeStyle = .none
+              df.doesRelativeDateFormatting = true
+          return df.string(from: date)
+          
+          }
+    else if calendar.isDateInYesterday(date){
+          let df = DateFormatter()
+              df.dateStyle = .short
+              df.timeStyle = .none
+              df.doesRelativeDateFormatting = true
+          return df.string(from: date)
+      }
+      else if calendar.isDateInTomorrow(date){
+          let df = DateFormatter()
+              df.dateStyle = .short
+              df.timeStyle = .none
+              df.doesRelativeDateFormatting = true
+          return df.string(from: date)
+          } else {
+              let df = DateFormatter()
+              df.dateFormat = "EEEE, MMM d"
+          return df.string(from: date)
+      }
+      
+      }
 }
-struct BoatingVIew_Previews: PreviewProvider {
-    static var previews: some View {
-        BoatingVIew()
-    }
-}
+//struct BoatingVIew_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BoatingVIew()
+//    }
+//}
