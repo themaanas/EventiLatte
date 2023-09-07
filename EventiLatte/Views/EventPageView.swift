@@ -9,13 +9,14 @@ import SwiftUI
 import Firebase
 import FirebaseDatabase
 import FirebaseDatabaseSwift
-
+import SwiftyJSON
 
 struct EventPageView: View {
     @Binding var article: Event
     @State var startDate: String = ""
     @State var endDate: String = ""
     @EnvironmentObject private var userSettings: UserSettings
+    @State var events: [Event] = []
     var body: some View {
         
         ScrollView {
@@ -51,12 +52,12 @@ struct EventPageView: View {
                             let uid = Auth.auth().currentUser?.uid
                             let university = userSettings.university
                             
-                            let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
+                            let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference().child("users").child(uid!).child("savedEvents")
                             
                             var refHandle = ref.observe(DataEventType.value, with: { snapshot in
-                                
-                                
-                                ref.child("users").child(uid!).setValue(["savedEvents": [article.id]])
+                                var data = JSON(snapshot.value as Any).arrayValue.map { $0.stringValue}
+                                data.append(article.id)
+                                ref.setValue([data])
                                 
                                 
                                 print("Button Pressed")

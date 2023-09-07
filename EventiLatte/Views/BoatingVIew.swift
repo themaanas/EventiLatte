@@ -24,10 +24,13 @@ struct BoatingVIew: View {
                     .font(.custom("ArchivoBlack-Regular", size: 32))
                     .padding(.leading, 10)
                     .foregroundColor(Color("colorFont"))
+                Text("Saved Events")
+                    .font(.custom("ArchivoBlack-Regular", size: 40))
                 List{
                     VStack(){
-                        Text("Saved Events")
-                            .font(.custom("ArchivoBlack-Regular", size: 40))
+                        Text("Today")
+                        //Image(imageurl)
+                        Text("Title")
                         
                         
                         
