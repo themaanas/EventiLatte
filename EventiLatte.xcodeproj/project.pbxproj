@@ -14,6 +14,7 @@
 		0A6216DF2A9DD40F0069BCB9 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */; };
 		0A6216E12A9DDB730069BCB9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6216E02A9DDB730069BCB9 /* ProfileView.swift */; };
 		0A7AD9B02AA1A88800101A39 /* chooseCollegeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AD9AF2AA1A88800101A39 /* chooseCollegeView.swift */; };
+		0AA2117A2AA9B1060053A4EA /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA211792AA9B1060053A4EA /* InterestView.swift */; };
 		0AE4AE242AA42C8E0020A7C7 /* notiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4AE232AA42C8E0020A7C7 /* notiView.swift */; };
 		0AE736A22A9C56580015769D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A12A9C56580015769D /* SignInView.swift */; };
 		0AE736A42A9C584A0015769D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE736A32A9C584A0015769D /* SignUpView.swift */; };
@@ -60,6 +61,7 @@
 		0A6216DE2A9DD40F0069BCB9 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		0A6216E02A9DDB730069BCB9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0A7AD9AF2AA1A88800101A39 /* chooseCollegeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseCollegeView.swift; sourceTree = "<group>"; };
+		0AA211792AA9B1060053A4EA /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		0AE4AE232AA42C8E0020A7C7 /* notiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notiView.swift; sourceTree = "<group>"; };
 		0AE736A12A9C56580015769D /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		0AE736A32A9C584A0015769D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				0AE736A12A9C56580015769D /* SignInView.swift */,
 				0A6216E02A9DDB730069BCB9 /* ProfileView.swift */,
 				0A7AD9AF2AA1A88800101A39 /* chooseCollegeView.swift */,
+				0AA211792AA9B1060053A4EA /* InterestView.swift */,
 				0AE736A32A9C584A0015769D /* SignUpView.swift */,
 				0AE4AE232AA42C8E0020A7C7 /* notiView.swift */,
 				0A061F0A2A9F465500FC3EC1 /* BoatingVIew.swift */,
@@ -366,6 +369,7 @@
 				0A6216DF2A9DD40F0069BCB9 /* HomeScreenView.swift in Sources */,
 				0A7AD9B02AA1A88800101A39 /* chooseCollegeView.swift in Sources */,
 				0AF045C12AA43F58004583D4 /* notificationHandler.swift in Sources */,
+				0AA2117A2AA9B1060053A4EA /* InterestView.swift in Sources */,
 				AE89745A2A9C4CCB006748CA /* ContentView.swift in Sources */,
 				AE3EDE902A9EE35500666B8B /* DiscoverView.swift in Sources */,
 				0A6216E12A9DDB730069BCB9 /* ProfileView.swift in Sources */,
