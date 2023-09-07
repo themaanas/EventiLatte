@@ -64,7 +64,7 @@ struct chooseCollegeView: View {
                 let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
                 let uid = Auth.auth().currentUser?.uid
                 
-                ref.child("users").child(uid!).setValue(["email": email, "name": name, "password": password, "univeristy": searchingFor])
+                ref.child("users").child(uid!).setValue(["email": email, "name": name, "password": password, "university": searchingFor])
                 
             }
         }

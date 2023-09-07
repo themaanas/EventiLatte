@@ -91,6 +91,7 @@ struct DiscoverContentView: View {
     @Environment(\.isSearching) private var isSearching
     @Binding var events: [Event]
     @State var articles: [Event] = []
+    @State var interests: [String] = []
     @State private var searchIsActive = false
     @State private var searchText = ""
     @State var shouldPresentSheet = false
@@ -256,8 +257,10 @@ struct DiscoverContentView: View {
                                     .onReceive(timer, perform: { _ in
                                                     withAnimation {
                                                         print("\(timerIndex) tag")
-                                                        timerIndex = ($timerIndex.wrappedValue + 1) % $events.filter{$0.categories.wrappedValue.contains("Welcome Week") && $0.imageURL.wrappedValue != "nil"}.count
-                                                        stringIndex = $events.filter{$0.categories.wrappedValue.contains("Welcome Week") && $0.imageURL.wrappedValue != "nil"}[timerIndex].id
+                                                        if $events.count > 0 {
+                                                            timerIndex = ($timerIndex.wrappedValue + 1) % $events.filter{$0.categories.wrappedValue.contains("Welcome Week") && $0.imageURL.wrappedValue != "nil"}.count
+                                                            stringIndex = $events.filter{$0.categories.wrappedValue.contains("Welcome Week") && $0.imageURL.wrappedValue != "nil"}[timerIndex].id
+                                                        }
                                                     }
                                                 })
                                     .onChange(of: stringIndex) { newValue in
@@ -265,7 +268,9 @@ struct DiscoverContentView: View {
                                         connectedTimer?.cancel()
                                                 }
                             
-                            
+                            ForEach($interests, id: \.self) { interest in
+                                InterestListView(events: $events, interest: interest)
+                            }
                             
                             
                         }
@@ -293,7 +298,9 @@ struct DiscoverContentView: View {
                     }
                     
                     if let value = snapshot?.value as? [String: Any] {
-                        university = value["university"] as? String ?? ""
+                        
+                        interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
+                        university = JSON(value)["university"] as? String ?? ""
                         print("/unis/" + university + "/events/")
                         ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
                         var refHandle = ref.observe(DataEventType.value, with: { snapshot in
@@ -348,9 +355,9 @@ struct InterestListView: View {
         ScrollView(.horizontal) {
             
             LazyHStack {
-                if $events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}.count > 0 {
+                if $events.filter{$0.categories.wrappedValue.contains($interest.wrappedValue) && $0.imageURL.wrappedValue != "nil"}.count > 0 {
                     
-                    ForEach($events.filter{$0.categories.wrappedValue.contains("Outdoor Event") && $0.imageURL.wrappedValue != "nil"}) { $event in
+                    ForEach($events.filter{$0.categories.wrappedValue.contains($interest.wrappedValue) && $0.imageURL.wrappedValue != "nil"}) { $event in
                         NavigationLink(destination: EventPageView(article: $event)) {
                             
                             ZStack {
@@ -397,7 +404,7 @@ struct InterestListView: View {
                     }
                 }
             }.padding(.leading, 10)
-        }
+        }.padding(.bottom, 30)
     }
 }
 
