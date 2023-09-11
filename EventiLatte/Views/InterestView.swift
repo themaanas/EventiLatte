@@ -9,52 +9,56 @@ import SwiftUI
 
 struct InterestView: View {
     
-    let items = [ Item(title: "Test", image: "spooggbob")]
-    let spacing: CGFloat = 10
-    
-    var body: some View {
-        let columns = Array(
-            repeating: GridItem(.flexible(), spacing: spacing), count: 3)
-        
-        ScrollView{
-            LazyVGrid(columns: columns, spacing: spacing) {
-                ForEach(items) { item in
-                    ItemView(item: item)
-                        .frame(height: 100)
-                        
-                }
-            }.padding(.horizontal)
-            
-        }.background(Color.white)
-    }
-}
-
-struct ItemView: View{
-    
-    let item: Item
     var body: some View{
-        GeometryReader{ reader in
-            VStack(spacing: 5){
-                Image(item.image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50)
-                Text(item.title)
-            }.frame(width: reader.size.width, height: reader.size.height)
-        }.frame(height: 150)
-            .shadow(color: Color.black.opacity(0.2), radius: 10, y: 5)
+        NavigationView(){
+            VStack{
+                Text("Choose Your Interests")
+                Grid{
+                    GridRow{
+                        Button("Sports"){
+                            
+                        }
+                        .background(Color(.white))
+                        .foregroundColor(Color("colorFont"))
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                        
+                        Button("Sports"){
+                            
+                        }
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                        
+                        Button("Sports"){
+                            
+                        }
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                        
+                    }
+                    GridRow{
+                        Button("Sports"){
+                            
+                        }
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                        Button("Sports"){
+                            
+                        }
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                        Button("Sports"){
+                            
+                        }
+                        .cornerRadius(10)
+                        .buttonStyle(.bordered)
+                    }
+                }
+            }.navigationBarTitle(Text("Interests"))
+        }
     }
-    
 }
 
-struct Item: Identifiable {
-    let id = UUID()
-    
-    let title: String
-    let image: String
-    
-    
-}
 
 struct InterestView_Previews: PreviewProvider {
     static var previews: some View {
