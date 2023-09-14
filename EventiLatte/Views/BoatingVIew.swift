@@ -22,6 +22,20 @@ import SwiftyJSON
 //    @State var categories: [String]
 //
 //}
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }
+        }
+
+        return arrayOrdered
+    }
+}
 
 
 struct BoatingVIew: View {
@@ -29,6 +43,7 @@ struct BoatingVIew: View {
     @EnvironmentObject var userSettings: UserSettings
     @State var interests: [String] = []
     @State var DateString = Date.now.formatted(.dateTime.month().day().year())
+    @State var shouldPresentSheet = false
     let notify = NotificationHandler()
     var body: some View {
         NavigationView{
@@ -46,12 +61,12 @@ struct BoatingVIew: View {
                                 .foregroundColor(.white)
                                 .frame(width: screenSize.size.width, height: 30, alignment: .leading)
                                 .padding(.top, 30)
-                            ScrollView(.horizontal) {
-                                LazyHStack {
+                            ScrollView() {
+                                VStack {
                                     if let eventIDList = $userSettings.parsedSavedEvents.wrappedValue[day] {
-                                        if $events.filter{eventIDList.contains($0.id.wrappedValue)}.count > 0 {
+                                        if $events.filter{eventIDList.contains($0.id.wrappedValue)}.unique{$0.id}.count > 0 {
                                             
-                                            ForEach($events.filter{eventIDList.contains($0.id.wrappedValue)}) { $event in
+                                            ForEach($events.filter{eventIDList.contains($0.id.wrappedValue)}.unique{$0.id}) { $event in
                                                 
                 //                                    Text("\(String(describing: $events.wrappedValue.filter{$0.id == event}[0]))")
                 //                                        .font(.system(size: 16))
@@ -60,7 +75,7 @@ struct BoatingVIew: View {
                 //                                        .foregroundColor(.white)
                 //                                        .frame(width: screenSize.size.width, height: 30, alignment: .leading)
                 //                                        .padding(.top, 30)
-                                                    EventLinkView(event: $event)
+                                                    HomeEventLinkView(event: $event)
                                                 
                                             }
                                         }
@@ -90,7 +105,36 @@ struct BoatingVIew: View {
                 
                 
             }
+            .navigationTitle("Home")
+    //                                .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                
+                Button(action: {
+                        shouldPresentSheet.toggle()
+                    })  {
+                        Image(systemName: "magnifyingglass")
+    //                                            .resizable()
+    //                                            .frame(width:40, height:40)
+                            .foregroundColor(Color.purple)
+    //                                            .font(.title)
+    //                                            .fontWeight(.bold)
+    //                                            .padding(.trailing, 30)
+                    }
+    //                                        .frame(width: 40, height: 40)
+    //                                        .padding(.top, 90)
+                
+                    .sheet(isPresented: $shouldPresentSheet) {
+                                        print("Sheet dismissed!")
+                                    } content: {
+                                        SearchView(events: $events)
+                                    }
+                
+                
+    //                                    .frame(width: 40, alignment : .trailing)
+
+                            }
         }
+        
 //        .onChange(of: userSettings.parsedSavedEvents, perform: { newValue in
 //
 //            print("hiiii \(newValue)")
@@ -154,6 +198,7 @@ struct BoatingVIew: View {
                 
             });
         }
+        
     
     }
     
