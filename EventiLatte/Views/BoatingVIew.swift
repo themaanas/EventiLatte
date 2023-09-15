@@ -55,9 +55,9 @@ struct BoatingVIew: View {
                         ForEach(Array($userSettings.parsedSavedEvents.wrappedValue.keys).sorted(by: {$0 < $1}), id: \.self) { day in
                             
                             Text("\(format(date:day))")
-                                .font(.system(size: 24))
+                                .font(.system(size: 22))
                                 .padding(.leading, 10)
-                                .fontWeight(.black)
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .frame(width: screenSize.size.width, height: 30, alignment: .leading)
                                 .padding(.top, 30)
