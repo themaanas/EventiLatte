@@ -19,7 +19,7 @@ struct InterestView: View {
         GeometryReader { geometry in
         //let uid = Auth.auth().currentUser?.uid
         //let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference().child("users").child(uid!).child("interests")
-        var interestArray: [String] = [""]
+        //var interestArray: [String] = [""]
             NavigationView(){
                 
                 ZStack{
