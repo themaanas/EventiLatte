@@ -26,7 +26,7 @@ struct HomeScreenView: View {
                     Text("Search")
                   }
             
-            notiView()
+            InterestView()
                  .tabItem {
                     Image(systemName: "bell.fill")
                     Text("Notifications")
