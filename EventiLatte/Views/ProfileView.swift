@@ -63,7 +63,14 @@ struct ProfileView: View {
                         }
                         .background(Color("colorBackground"))
                         .scrollContentBackground(.hidden)
-                        .navigationTitle(userSettings.name)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                VStack {
+                                    Text("\(userSettings.name)").font(.largeTitle).bold()
+                                    Text("\(userSettings.university)").font(.subheadline)
+                                }
+                            }
+                        }
                     }
 
                     
