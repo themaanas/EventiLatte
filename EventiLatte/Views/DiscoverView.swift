@@ -267,6 +267,7 @@ struct DiscoverContentView: View {
                                                     debugPrint("[a]: new value \(newValue)")
                                         connectedTimer?.cancel()
                                                 }
+                                    .padding(.top, -30)
                             
                             ForEach($interests, id: \.self) { interest in
                                 InterestListView(events: $events, interest: interest)
@@ -276,7 +277,7 @@ struct DiscoverContentView: View {
                         }
                         
                     }
-                }.background(Color("colorBackground"))
+                }.background(Color("colorBackgroundSecondary"))
             }
             
                 
@@ -354,48 +355,7 @@ struct InterestListView: View {
                 if $events.filter{$0.categories.wrappedValue.contains($interest.wrappedValue) && $0.imageURL.wrappedValue != "nil"}.count > 0 {
                     
                     ForEach($events.filter{$0.categories.wrappedValue.contains($interest.wrappedValue) && $0.imageURL.wrappedValue != "nil"}) { $event in
-                        NavigationLink(destination: EventPageView(article: $event)) {
-                            
-                            ZStack {
-                                ZStack(alignment: .top){
-                                    Color.clear
-                                    CachedAsyncImage(url: URL(string: "\(event.imageURL)")){ image in
-                                        //                                                        Color.clear
-                                        ZStack {
-                                            image.resizable().scaledToFit().clipShape(RoundedRectangle(cornerRadius: 20))
-                                            
-                                        }.frame(width: 250, height: 150)
-                                        
-                                    } placeholder: {
-                                        ProgressView()
-                                    }.shadow(color: Color.black.opacity(0.7), radius: 10, y: 0)
-                                }
-                                ZStack(alignment: .bottomLeading) {
-                                    Color.clear
-                                    VStack(spacing:0) {
-                                        Text(String(event.title))
-                                            .padding(.trailing, 50)
-                                            .frame(width: 250, height: 10, alignment: .leading)
-                                            .font(.system(size: 15))
-                                            .foregroundColor(.white)
-                                            .fontWeight(.bold)
-                                            .padding(.bottom, 8)
-                                        Text(String(event.shortDateString))
-                                            .frame(width: 250, height: 10, alignment: .leading)
-                                            .font(.system(size: 10))
-                                            .foregroundColor(Color(hex: 0xd0c3eb))
-                                            .padding(.bottom, 10)
-                                    }.frame(alignment: .leading).padding(.leading, 25)
-                                    
-                                }
-                                
-                                
-                                
-                            }
-                            .frame(width: 250, height: 200)
-                            .background(Color("colorBackgroundSecondary"))
-                            .cornerRadius(20)
-                        }
+                        EventLinkView(event: $event)
                         
                     }
                 }
@@ -403,6 +363,7 @@ struct InterestListView: View {
         }.padding(.bottom, 30)
     }
 }
+
 
 //struct DiscoverView_Previews: PreviewProvider {
 //    static var previews: some View {

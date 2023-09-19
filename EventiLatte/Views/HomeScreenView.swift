@@ -18,7 +18,7 @@ struct HomeScreenView: View {
              .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
-              }
+             }.environmentObject(userSettings)
             
             DiscoverView()
                  .tabItem {
