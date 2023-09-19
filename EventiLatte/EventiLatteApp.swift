@@ -31,10 +31,10 @@ class UserSettings: ObservableObject {
         self.interests = []
         self.savedEvents = []
         self.parsedSavedEvents = [:]
-        var tempEvents: [Date: [String]] = [:]
+        
         
         ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
-            
+            var tempEvents: [Date: [String]] = [:]
             if let value = snapshot.value as? [String: Any] {
                 self.name = value["name"] as? String ?? ""
                 self.email = value["email"] as? String ?? ""

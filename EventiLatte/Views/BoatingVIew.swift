@@ -82,23 +82,6 @@ struct BoatingVIew: View {
                                     }
                                 }
                             }
-                            
-                            
-                            
-                            //                List{
-                            //                    VStack(){
-                            //                        Text("Today")
-                            //                        //Image(imageurl)
-                            //                        Text("Title")
-                            //
-                            //
-                            //
-                            //
-                            //                    }.listRowSeparator(.hidden)
-                            //                        .listRowBackground(Color("colorBackground"))
-                            //
-                            //                }.background(Color("colorBackground"))
-                            //                    .scrollContentBackground(.hidden)
                         }
                     }
                 }
@@ -192,7 +175,8 @@ struct BoatingVIew: View {
                                             endDate: subJson["endDate"].stringValue,
                                             imageURL: subJson["imageURL"].stringValue,
                                             shortDateString: outputString,
-                                            categories: subJson["categories"].arrayValue.map { $0.stringValue}))
+                                            categories: subJson["categories"].arrayValue.map { $0.stringValue},
+                                            location: subJson["location"].stringValue))
                     }
                 })
                 

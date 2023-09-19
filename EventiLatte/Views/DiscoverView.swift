@@ -56,6 +56,7 @@ struct Event: Identifiable {
     @State var imageURL: String
     @State var shortDateString: String
     @State var categories: [String]
+    @State var location: String
     
 }
 
@@ -277,7 +278,8 @@ struct DiscoverContentView: View {
                         }
                         
                     }
-                }.background(Color("colorBackgroundSecondary"))
+                }
+                .background(Color("colorBackground"))
             }
             
                 
@@ -326,7 +328,8 @@ struct DiscoverContentView: View {
                                                     endDate: subJson["endDate"].stringValue,
                                                     imageURL: subJson["imageURL"].stringValue,
                                                     shortDateString: outputString,
-                                                    categories: subJson["categories"].arrayValue.map { $0.stringValue}))
+                                                    categories: subJson["categories"].arrayValue.map { $0.stringValue},
+                                                    location: subJson["location"].stringValue))
                             }
                         })
                     }
