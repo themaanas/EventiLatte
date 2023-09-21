@@ -279,6 +279,7 @@ struct DiscoverContentView: View {
                         
                     }
                 }
+                .scrollContentBackground(.hidden)
                 .background(Color("colorBackground"))
             }
             
@@ -294,46 +295,50 @@ struct DiscoverContentView: View {
                 let uid = Auth.auth().currentUser?.uid
                 
                 var university = ""
-                ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
-                    
-                    if let value = snapshot.value as? [String: Any] {
-                        
-                        interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
-                        university = JSON(value)["university"].stringValue
-                        print("/unis/" + university + "/events/")
-                        ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
-                        var refHandle = ref.observe(DataEventType.value, with: { snapshot in
-                            let data = JSON(snapshot.value as Any)
+                if uid != nil {
+                    ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
+                        events = []
+                        if let value = snapshot.value as? [String: Any] {
                             
-    //                        print(data)
-                            for (key,subJson):(String, JSON) in data {
-                                let string1 = "\(subJson["startDate"].stringValue)"
-                                let string2 = "\(subJson["endDate"].stringValue)"
-                                let formatter4 = DateFormatter()
-                                formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                let date1 = formatter4.date(from: string1)
-                                let date2 = formatter4.date(from: string2)
-                                formatter4.dateFormat = "M/d h:mma"
-                                var outputString = "\(formatter4.string(from: date1 ?? Date())) - \(formatter4.string(from: date2 ?? Date()))"
-                                if (Calendar.current.isDate(date1 ?? Date(), inSameDayAs:date2 ?? Date())) {
-                                    
-                                    outputString = "\(formatter4.string(from: date1 ?? Date())) - "
-                                    formatter4.dateFormat = "h:mma"
-                                    outputString = outputString + "\(formatter4.string(from: date2 ?? Date()))"
+                            interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
+                            university = JSON(value)["university"].stringValue
+                            print("/unis/" + university + "/events/")
+                            ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
+                            var refHandle = ref.observe(DataEventType.value, with: { snapshot in
+                                let data = JSON(snapshot.value as Any)
+                                
+        //                        print(data)
+                                for (key,subJson):(String, JSON) in data {
+                                    let string1 = "\(subJson["startDate"].stringValue)"
+                                    let string2 = "\(subJson["endDate"].stringValue)"
+                                    let formatter4 = DateFormatter()
+                                    formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                    let date1 = formatter4.date(from: string1)
+                                    let date2 = formatter4.date(from: string2)
+                                    formatter4.dateFormat = "M/d h:mma"
+                                    var outputString = "\(formatter4.string(from: date1 ?? Date())) - \(formatter4.string(from: date2 ?? Date()))"
+                                    if (Calendar.current.isDate(date1 ?? Date(), inSameDayAs:date2 ?? Date())) {
+                                        
+                                        outputString = "\(formatter4.string(from: date1 ?? Date())) - "
+                                        formatter4.dateFormat = "h:mma"
+                                        outputString = outputString + "\(formatter4.string(from: date2 ?? Date()))"
+                                    }
+                                    events.append(Event(title: subJson["title"].stringValue,
+                                                        summary: subJson["summary"].stringValue,
+                                                        id: key,
+                                                        startDate: subJson["startDate"].stringValue,
+                                                        endDate: subJson["endDate"].stringValue,
+                                                        imageURL: subJson["imageURL"].stringValue,
+                                                        shortDateString: outputString,
+                                                        categories: subJson["categories"].arrayValue.map { $0.stringValue},
+                                                        location: subJson["location"].stringValue))
                                 }
-                                events.append(Event(title: subJson["title"].stringValue,
-                                                    summary: subJson["summary"].stringValue,
-                                                    id: key,
-                                                    startDate: subJson["startDate"].stringValue,
-                                                    endDate: subJson["endDate"].stringValue,
-                                                    imageURL: subJson["imageURL"].stringValue,
-                                                    shortDateString: outputString,
-                                                    categories: subJson["categories"].arrayValue.map { $0.stringValue},
-                                                    location: subJson["location"].stringValue))
-                            }
-                        })
-                    }
-                });
+                                events = events.sorted {$0.startDate < $1.startDate}
+                            })
+                        }
+                    });
+                }
+                
                 
             }
         

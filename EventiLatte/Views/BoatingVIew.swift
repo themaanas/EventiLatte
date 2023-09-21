@@ -39,7 +39,7 @@ extension Array {
 
 
 struct BoatingVIew: View {
-    @State var events: [Event] = []
+    @Binding var events: [Event]
     @EnvironmentObject var userSettings: UserSettings
     @State var interests: [String] = []
     @State var DateString = Date.now.formatted(.dateTime.month().day().year())
@@ -62,6 +62,7 @@ struct BoatingVIew: View {
                                 .frame(width: screenSize.size.width, height: 30, alignment: .leading)
                                 .padding(.top, 30)
                             ScrollView() {
+                                
                                 VStack {
                                     if let eventIDList = $userSettings.parsedSavedEvents.wrappedValue[day] {
                                         if $events.filter{eventIDList.contains($0.id.wrappedValue)}.unique{$0.id}.count > 0 {
@@ -127,60 +128,7 @@ struct BoatingVIew: View {
 //        }
         .onAppear() {
             
-            //            let events = userSettings.savedEvents
-            //         print("Print: \($userSettings.parsedSavedEvents.wrappedValue)")
-            //            let ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
-            //            let uid = Auth.auth().currentUser?.uid
             
-            //            ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
-            //            if let past = Calendar.current.date(byAdding: .day, value:                -3, to: Date()) {
-            //
-            //                DateString = format(date: past)
-            //                print(format(date: past)) // "next week"
-            //
-            //
-            //
-            //            }
-            //
-            var ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference()
-            let uid = Auth.auth().currentUser?.uid
-            
-            var university = ""
-            ref.child("users").child(uid!).getData(completion: { error, snapshot1 in
-                university = JSON(snapshot1?.value)["university"].stringValue
-                ref = Database.database(url: "https://eventplanner-e12a0-default-rtdb.firebaseio.com").reference(withPath: "/unis/" + university + "/events/")
-                var refHandle = ref.getData(completion: { error, snapshot in
-                    let data = JSON(snapshot?.value as Any)
-                    
-                    //                        print(data)
-                    for (key,subJson):(String, JSON) in data {
-                        let string1 = "\(subJson["startDate"].stringValue)"
-                        let string2 = "\(subJson["endDate"].stringValue)"
-                        let formatter4 = DateFormatter()
-                        formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        let date1 = formatter4.date(from: string1)
-                        let date2 = formatter4.date(from: string2)
-                        formatter4.dateFormat = "M/d h:mma"
-                        var outputString = "\(formatter4.string(from: date1 ?? Date())) - \(formatter4.string(from: date2 ?? Date()))"
-                        if (Calendar.current.isDate(date1 ?? Date(), inSameDayAs:date2 ?? Date())) {
-                            
-                            outputString = "\(formatter4.string(from: date1 ?? Date())) - "
-                            formatter4.dateFormat = "h:mma"
-                            outputString = outputString + "\(formatter4.string(from: date2 ?? Date()))"
-                        }
-                        events.append(Event(title: subJson["title"].stringValue,
-                                            summary: subJson["summary"].stringValue,
-                                            id: key,
-                                            startDate: subJson["startDate"].stringValue,
-                                            endDate: subJson["endDate"].stringValue,
-                                            imageURL: subJson["imageURL"].stringValue,
-                                            shortDateString: outputString,
-                                            categories: subJson["categories"].arrayValue.map { $0.stringValue},
-                                            location: subJson["location"].stringValue))
-                    }
-                })
-                
-            });
         }
         
     

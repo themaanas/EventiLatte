@@ -16,17 +16,30 @@ struct HomeEventLinkView: View {
                 HStack(spacing:0) {
                     VStack(alignment: .leading){
 //                        Color.clear
-                        CachedAsyncImage(url: URL(string: "\(event.imageURL)")){ image in
-                            //                                                        Color.clear
-                            ZStack {
-                                image.resizable().scaledToFill()
+                        if event.imageURL != "nil" {
+                            CachedAsyncImage(url: URL(string: "\(event.imageURL)")){ image in
+                                //                                                        Color.clear
+                                ZStack {
+                                    image.resizable().scaledToFill()
+                                    
+                                }.frame(width: geometry.size.width * 0.27, height: geometry.size.width * 0.27).clipShape(RoundedRectangle(cornerRadius: 6))
                                 
-                            }.frame(width: geometry.size.width * 0.27, height: geometry.size.width * 0.27).clipShape(RoundedRectangle(cornerRadius: 6))
-                            
-                        } placeholder: {
-                            ProgressView()
-                        }
-                    }.frame(width: geometry.size.width * 0.3, height: 130).padding(.leading, 5)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            } else {
+                                CachedAsyncImage(url: URL(string: "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png")){ image1 in
+                                    //                                                        Color.clear
+                                    ZStack {
+                                        image1.resizable().scaledToFill()
+                                        
+                                    }.frame(width: geometry.size.width * 0.27, height: geometry.size.width * 0.27).clipShape(RoundedRectangle(cornerRadius: 6))
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                            }
+                        
+                    }.frame(width: geometry.size.width * 0.3, height: 130).padding(.leading, 25)
                     
                     VStack(alignment: .leading, spacing: 0) {
                         Color.clear
@@ -57,10 +70,13 @@ struct HomeEventLinkView: View {
                     
                     
                 }
-                .frame(width: geometry.size.width, height: 130)
+                .frame(width: geometry.size.width-20, height: 130)
                 .background(Color("colorBackgroundSecondary"))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(.leading, 10)
             }
         }.frame(height: 130)
+        
     }
 }
 //

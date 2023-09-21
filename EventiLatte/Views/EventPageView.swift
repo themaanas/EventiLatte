@@ -40,24 +40,37 @@ struct EventPageView: View {
 //                            Spacer()
 //
 //                        }
-                        VStack(alignment: .leading, spacing: 0){
-    //                        Color.clear
-                            CachedAsyncImage(url: URL(string: "\(article.imageURL)")){ image in
-                                //                                                        Color.clear
-                                ZStack {
-                                    image.resizable().scaledToFill()
-                                    
-                                }.frame(width: geometry.size.width - 30, height: 180).clipShape(RoundedRectangle(cornerRadius: 20))
+                        if article.imageURL != "nil" {
+                            VStack(alignment: .leading, spacing: 0){
+                                //                        Color.clear
                                 
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .padding(.leading, 0)
-                            
-                            
-                        }.frame(width: geometry.size.width, height: 180)
-                            .padding(.top, 20)
-                        
+                                CachedAsyncImage(url: URL(string: "\(article.imageURL)")){ image in
+                                    //                                                        Color.clear
+                                    ZStack {
+                                        image.resizable().scaledToFill()
+                                        
+                                    }.frame(width: geometry.size.width - 30, height: 180).clipShape(RoundedRectangle(cornerRadius: 20))
+                                    
+                                } placeholder: {
+                                    ProgressView()
+                                }.padding(.leading, 0)
+                                
+                                //                                CachedAsyncImage(url: URL(string: "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png")){ image1 in
+                                //                                    //                                                        Color.clear
+                                //                                    ZStack {
+                                //                                        image1.resizable().scaledToFill()
+                                //
+                                //                                    }.frame(width: geometry.size.width - 30, height: 180).clipShape(RoundedRectangle(cornerRadius: 20))
+                                //                                } placeholder: {
+                                //                                    ProgressView()
+                                //                                }.padding(.leading, 0)
+                                
+                                
+                                
+                                
+                            }.frame(width: geometry.size.width, height: 180)
+                                .padding(.top, 20)
+                        }
                         
                         Text("\(article.title)")
                             .font(.system(size: 30))
@@ -167,7 +180,7 @@ struct EventPageView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) { // <3>
                     VStack {
-                        Text($scrollOffset.wrappedValue > 10 ? "\(article.title)": "").frame(alignment: .center).multilineTextAlignment(.center)
+                        Text($scrollOffset.wrappedValue > 290 ? "\(article.title)": "").frame(alignment: .center).multilineTextAlignment(.center)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) { // <3>

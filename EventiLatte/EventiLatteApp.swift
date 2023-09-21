@@ -32,42 +32,44 @@ class UserSettings: ObservableObject {
         self.savedEvents = []
         self.parsedSavedEvents = [:]
         
-        
-        ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
-            var tempEvents: [Date: [String]] = [:]
-            if let value = snapshot.value as? [String: Any] {
-                self.name = value["name"] as? String ?? ""
-                self.email = value["email"] as? String ?? ""
-                self.university = value["university"] as? String ?? ""
-                self.interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
-                ref.child("unis").child(self.university).child("events").getData { error, snapshot1 in
-                    
-                    self.savedEvents = JSON(value)["savedEvents"].arrayValue.map { $0.stringValue}
-                    var eventData = JSON(snapshot1?.value)
-//                    print(eventData["-NdDHvH9lA_BdjF95QNx"])
-                    for event in self.savedEvents {
-                        let string1 = "\(eventData[event]["startDate"].stringValue)"
-                        let formatter4 = DateFormatter()
-                        formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        let date1 = formatter4.date(from: string1)
-                        let cal = Calendar(identifier: .gregorian)
-                        print(cal.startOfDay(for: date1 ?? Date()))
-                        var eventsForDay = tempEvents[cal.startOfDay(for: date1 ?? Date())] ?? []
-                        eventsForDay.append(event)
-                        tempEvents[cal.startOfDay(for: date1 ?? Date())] = Array(Set(eventsForDay))
-                        print(eventsForDay)
-                        print(event)
+        if uid != nil {
+            ref.child("users").child(uid!).observe(DataEventType.value, with:  { snapshot in
+                var tempEvents: [Date: [String]] = [:]
+                if let value = snapshot.value as? [String: Any] {
+                    self.name = value["name"] as? String ?? ""
+                    self.email = value["email"] as? String ?? ""
+                    self.university = value["university"] as? String ?? ""
+                    self.interests = JSON(value)["interests"].arrayValue.map { $0.stringValue}
+                    ref.child("unis").child(self.university).child("events").getData { error, snapshot1 in
+                        
+                        self.savedEvents = JSON(value)["savedEvents"].arrayValue.map { $0.stringValue}
+                        var eventData = JSON(snapshot1?.value)
+    //                    print(eventData["-NdDHvH9lA_BdjF95QNx"])
+                        for event in self.savedEvents {
+                            let string1 = "\(eventData[event]["startDate"].stringValue)"
+                            let formatter4 = DateFormatter()
+                            formatter4.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            let date1 = formatter4.date(from: string1)
+                            let cal = Calendar(identifier: .gregorian)
+                            print(cal.startOfDay(for: date1 ?? Date()))
+                            var eventsForDay = tempEvents[cal.startOfDay(for: date1 ?? Date())] ?? []
+                            eventsForDay.append(event)
+                            tempEvents[cal.startOfDay(for: date1 ?? Date())] = Array(Set(eventsForDay))
+                            print(eventsForDay)
+                            print(event)
+                        }
+                        self.parsedSavedEvents = tempEvents.sorted(by: {$0.0 < $1.0}).reduce(into: [:]) { $0[$1.0] = $1.1 }
+    //                    print(parsedSavedEvents)
                     }
-                    self.parsedSavedEvents = tempEvents.sorted(by: {$0.0 < $1.0}).reduce(into: [:]) { $0[$1.0] = $1.1 }
-//                    print(parsedSavedEvents)
+                    
+                    
                 }
+    //            print(name, email, university)
+    //            return UserSettings(name: name, email: email, university: university)
                 
-                
-            }
-//            print(name, email, university)
-//            return UserSettings(name: name, email: email, university: university)
-            
-        });
+            });
+        }
+        
     }
 }
 
@@ -117,33 +119,37 @@ struct EventiLatteApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            if !$isLoggedIn.wrappedValue {
-                ContentView()
-                    .onChange(of: scenePhase) { newPhase in
-                                    if newPhase == .active {
-                                        handle = Auth.auth().addStateDidChangeListener({ auth, user in
-                                            if let user = user {
-                                              // The user's ID, unique to the Firebase project.
-                                              // Do NOT use this value to authenticate with your backend server,
-                                              // if you have one. Use getTokenWithCompletion:completion: instead.
-                                                let uid = user.uid
-                                                let email = user.email
-                                                print("\(uid) + \(email)")
-                                                isLoggedIn = true
-                                            } else {
-                                                isLoggedIn = false
-                                            }
-                                        })
-                                    } else if newPhase == .inactive {
-                                        print("Inactive")
-                                    } else if newPhase == .background {
-                                        Auth.auth().removeStateDidChangeListener(handle as! NSObjectProtocol)
-                                    }
-                                }
-            } else {
-                HomeScreenView()
-                    .environmentObject(userSettings)
+            
+            ZStack {
+                if !$isLoggedIn.wrappedValue {
+                    ContentView()
+                        
+                } else {
+                    HomeScreenView()
+                        .environmentObject(UserSettings())
+                }
             }
+            .onChange(of: scenePhase) { newPhase in
+                            if newPhase == .active {
+                                handle = Auth.auth().addStateDidChangeListener({ auth, user in
+                                    if let user = user {
+                                      // The user's ID, unique to the Firebase project.
+                                      // Do NOT use this value to authenticate with your backend server,
+                                      // if you have one. Use getTokenWithCompletion:completion: instead.
+                                        let uid = user.uid
+                                        let email = user.email
+                                        print("\(uid) + \(email)")
+                                        isLoggedIn = true
+                                    } else {
+                                        isLoggedIn = false
+                                    }
+                                })
+                            } else if newPhase == .inactive {
+                                print("Inactive")
+                            } else if newPhase == .background {
+                                Auth.auth().removeStateDidChangeListener(handle as! NSObjectProtocol)
+                            }
+                        }
                 
             
             
